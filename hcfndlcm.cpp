@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-int a, b, p, r;
+int a, b, p, r,m ;
 int main()
 {
     cout<<"write the first number "<<endl;
@@ -10,6 +10,7 @@ int main()
     p = a*b;
     r = a % b;
     if(  r == 0 ){
+
         cout<<"the hcf is: "<<b<<endl;
         cout<<"and the lcf is: "<<p/b<<endl;
          }

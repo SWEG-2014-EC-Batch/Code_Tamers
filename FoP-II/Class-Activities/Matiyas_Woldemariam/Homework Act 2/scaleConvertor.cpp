@@ -23,7 +23,6 @@ int main() {
         cin>>check;
     }while(check == 'Y' || check == 'y');
 
-    system("pause");
     return 0;
 }
 

@@ -1,61 +1,47 @@
-
+//this program converts scales from feets and inches to meter and centimeter
 #include <iostream>
 using namespace std;
 
-void input(double &val1, double &val2, int &choice);
+//prototype of the input function
+void inputLength(double& feet, double& inches);
 
-void convert(double &val1, double &val2, int &choice);
+//prototype of the calculating function
+void calculateLength(double feet, double inches, double& meters, double& centimeters);
 
-void output(double &val1, double &val2, int &choice);
+//prototype of the output printing function
+void outputLength(double feet, double inches, double meters, double centimeters);
 
 int main() {
-    double x, y;
-    int z;
-    input(x, y, z);
+    double feet, inches, meters, centimeters;
+    char check;
+    do {
+        inputLength(feet, inches);
+        calculateLength(feet, inches, meters, centimeters);
+        outputLength(feet, inches, meters, centimeters);
+        cout<<"\nDo you want to continue the calculation? (Y/N)\n";
+        cin>>check;
+    }while(check == 'Y' || check == 'y');
+
+    system("pause");
+    return 0;
 }
 
-void input(double &val1, double &val2, int &choice) {
-    while(choice!=0) {
-        cout<<"Choose 1 for converting feet and inches to meters and centimeters\nChoose 2 for converting meter and centimeter to feet and inches\nEnter 0 to exit"<<endl;
-        cin>>choice;
-        switch(choice) {
-            case 1:
-                cout<<"Enter the length in feet in inches\n";
-                cin>>val1>>val2;
-                cout<<"\nThe respective meter and centimeters are: ";
-                convert(val1, val2, choice);
-                output(val1, val2, choice);
 
-            break;
-            case 2:
-                cout<<"Enter the length in meter and centimeter\n";
-                cin>>val1>>val2;
-                convert(val1, val2, choice);
-                output(val1, val2, choice);
-            break;
-        }
-    }
+//defining function for input function
+void inputLength(double& feet, double& inches) {
+    cout<<"Enter length in feet: ";
+    cin>>feet;
+    cout<<"Enter the length in inches: ";
+    cin>>inches;
 }
 
-void convert(double &val1, double &val2, int &choice) {
-    if (choice==1) {
-        val1 = val1 * 0.3048;
-        val2 = val2 * 2.54;
-    }
-    else if (choice==2) {
-        val1 = val1 * 3.2808;
-        val2 = val2 * 0.393;
-        cout<<val1<<" "<<val2;
-    }
+//defining the function that do the calculation
+void calculateLength(double feet, double inches, double& meters, double& centimeters) {
+    meters = feet * 0.3048;
+    centimeters = inches * 2.54;
 }
 
-void output(double &val1, double &val2, int &choice) {
-    if (choice==1) {
-        cout<<"\nThe respective meter and centimeters are: ";
-        cout<<val1<<" "<<val2;
-    }
-    else if (choice==2) {
-        cout<<"\nThe respective feet and inches are: ";
-        cout<<val1<<" "<<val2;
-    }
+//defining the function that prints the output
+void outputLength(double feet, double inches, double meters, double centimeters) {
+    cout<<feet<<" feet "<<inches<<" inches is equivalent to "<<meters<<" meter and "<<centimeters<<" centimeters.";
 }

@@ -56,6 +56,7 @@ void lower(string word) {
     cout<<word;
 }
 
+//The function that convert a string to upercase
 void upper(string word) {
     int k = len(word);
     for(int j=0;j<k;++j) {

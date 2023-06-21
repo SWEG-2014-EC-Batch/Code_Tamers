@@ -68,3 +68,16 @@ void upper(string word) {
     }
     cout<<word;
 }
+
+//a function that compares two string based on their length
+int compare(string say1, string say2) {
+    int x, y;
+    x = len(say1);
+    y = len(say2);
+    if(x==y) 
+        return 0;
+    else if(x>y)
+        return 1;
+    else    
+        return -1;
+}

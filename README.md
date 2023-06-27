@@ -12,6 +12,7 @@ Instructions on how to clone the project.
 
 ### If in terminal
 bash
+
 $ git clone https://github.com/SWEG-2015-EC-Batch/Code_Tamers
 
 $ cd project

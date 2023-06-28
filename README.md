@@ -4,7 +4,7 @@
 
 This repo is created for the sake of storing and sharing code's that are written by the team Code Tamers.
 
-We aim to make this repo as clean and navigable as possible to make our teacher and classmates or anbody that acess this repo be able to understand.
+We aim to make this repo as clean and navigable as possible to make our teacher and classmates or anbody that access this repo be able to understand.
 
 ## How to get our Repo
 

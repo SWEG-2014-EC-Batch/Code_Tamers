@@ -17,7 +17,7 @@ float bmiCalc(float h, float w);
 
 int num;
 int main() {
-    //declare array of pointers to person structures
+    //create a structure pointer
     person* pep = people;
 
     cout<<"\nenter the number of person you want to calculate for: ";

@@ -1,5 +1,6 @@
 //version 3 of bmi calculator program with structure pointer
 #include <iostream>
+#include <iomanip>
 #include <cmath>
 using namespace std;
 
@@ -37,10 +38,10 @@ int main() {
     }
 
     //the display of the program
-    cout<<"\n\nWhen the data is tabulated: \nname\t\tgender\t\tage\t\tweight\t\theight\t\tbmi\n \t-------------------------------------------------------\n";
+    cout<<"\n\n"<<setw(90)<<"When the data is tabulated:\n\n"<<setw(40)<<"name"<<setw(15)<<"gender"<<setw(15)<<"age"<<setw(15)<<"weight"<<setw(15)<<"height"<<setw(15)<<"bmi\n"<<setw(25)<<"\n\n";
     for(int i=0;i<num;++i) {
         (pep+i)->bmi = bmiCalc((pep+i)->height, (pep+i)->weight);
-        cout<<(pep+i)->name<<"\t\t"<<(pep+i)->gender<<"\t\t"<<(pep+i)->age<<"\t\t"<<(pep+i)->weight<<"\t\t"<<(pep+i)->height<<"\t\t"<<(pep+i)->bmi<<endl;
+        cout<<setw(40)<<(pep+i)->name<<setw(15)<<(pep+i)->gender<<setw(15)<<(pep+i)->age<<setw(15)<<(pep+i)->weight<<setw(15)<<(pep+i)->height<<setw(15)<<(pep+i)->bmi<<endl;
     }
 }
 

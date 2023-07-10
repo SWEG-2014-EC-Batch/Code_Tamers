@@ -26,7 +26,7 @@ int vowel(string word) {
 int consonant(string word) {
     int i=0, consonantC=0;
     while((word[i]>='a' && word[i]<='z')||(word[i]>='A' && word[i]<='Z') || (word[i] ==' ') || (word[i]>='0' && word[i]<='9')) {
-        if(word[i]=='a' || word[i]=='i' || word[i]=='e' || word[i]=='o' || word[i]=='u' || word[i]=='A' || word[i]=='E' || word[i]=='O' || word[i]=='I' || word[i]=='U')
+        if(word[i]=='a' || word[i]=='i' || word[i]=='e' || word[i]=='o' || word[i]=='u' || word[i]=='A' || word[i]=='E' || word[i]=='O' || word[i]=='I' || word[i]=='U' || (word[i]>='0' && word[i]<='9'))
             consonantC=consonantC;
         else
             consonantC++;

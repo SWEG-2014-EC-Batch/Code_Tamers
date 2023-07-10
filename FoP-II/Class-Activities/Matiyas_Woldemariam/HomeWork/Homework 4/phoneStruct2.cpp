@@ -11,7 +11,7 @@ struct phone {
 
 struct contact {
     string name;
-    phone phoneNum;
+    phone phoneNum; //this is nested structure
 }pepa[10]; //structure array variable 
 
 //this function accepts the input

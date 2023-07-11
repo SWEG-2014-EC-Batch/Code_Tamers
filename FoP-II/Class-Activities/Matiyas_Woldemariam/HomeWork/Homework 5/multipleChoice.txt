@@ -1,0 +1,12 @@
+Multiple choice questions answer
+1. ofstream meant to writes to a file (b)
+2. There are three types of output stream class in c++ ostream and ofstream and ostringstream. (b)
+3.  we use seekg to position back from the end of the file object. (b)
+4. #include <fstream> used for reading and writing to a file.
+5. writing to a memory is faster than the other processes. This is because writing to a file involves additional over head such as buffering,
+caching, synchronization, and error handling. but writing to a memory can be done directly. (c)
+6. stream used to interact from program to physical devices. (a)
+7. fstream.h is a header that is used to create and read data files. (d)
+8. Type safety is benefit of c++ i/o over C i/o. (b)
+9. By default files opened in text mode in c++. (a)
+10. The default mode for fstream class is ios::in|ios::out (c)

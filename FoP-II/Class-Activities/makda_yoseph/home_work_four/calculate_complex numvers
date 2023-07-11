@@ -1,0 +1,107 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
+struct Complex {
+    float real;
+    float imaginary;
+};
+
+// Function declarations
+void inputComplexNumbers(Complex& c1, Complex& c2);
+void addComplexNumbers(const Complex& c1, const Complex& c2);
+void subtractComplexNumbers(const Complex& c1, const Complex& c2);
+void multiplyComplexNumbers(const Complex& c1, const Complex& c2);
+void divideComplexNumbers(const Complex& c1, const Complex& c2);
+
+int main() {
+    Complex complex1, complex2;
+
+    inputComplexNumbers(complex1, complex2);
+    addComplexNumbers(complex1, complex2);
+    subtractComplexNumbers(complex1, complex2);
+    multiplyComplexNumbers(complex1, complex2);
+    divideComplexNumbers(complex1, complex2);
+
+    return 0;
+}
+
+// Function definitions
+void inputComplexNumbers(Complex& c1, Complex& c2) {
+    std::cout << std::setw(40) << "Enter real part for the first complex number: ";
+    std::cin >> c1.real;
+    std::cout << std::setw(40) << "Enter imaginary part for the first complex number: ";
+    std::cin >> c1.imaginary;
+    std::cout << std::setw(40) << "Enter real part for the second complex number: ";
+    std::cin >> c2.real;
+    std::cout << std::setw(40) << "Enter imaginary part for the second complex number: ";
+    std::cin >> c2.imaginary;
+}
+
+void addComplexNumbers(const Complex& c1, const Complex& c2) {
+    std::cout << "\nWhen adding the two complex numbers:\n";
+    std::cout << std::setw(40) << c1.real + c2.real;
+
+    if (c1.imaginary + c2.imaginary != 0) {
+        if (c1.imaginary + c2.imaginary == 1)
+            std::cout << "+i";
+        else if (c1.imaginary + c2.imaginary == -1)
+            std::cout << "-i";
+        else if (c1.imaginary + c2.imaginary < 0)
+            std::cout << c1.imaginary + c2.imaginary << "i";
+        else
+            std::cout << "+" << c1.imaginary + c2.imaginary << "i";
+    }
+}
+
+void subtractComplexNumbers(const Complex& c1, const Complex& c2) {
+    std::cout << "\n\nWhen subtracting the two complex numbers:\n";
+    std::cout << std::setw(40) << c1.real - c2.real;
+
+    if (c1.imaginary - c2.imaginary != 0) {
+        if (c1.imaginary - c2.imaginary > 0)
+            std::cout << "+" << c1.imaginary - c2.imaginary << "i";
+        else
+            std::cout << c1.imaginary - c2.imaginary << "i";
+    }
+}
+
+void multiplyComplexNumbers(const Complex& c1, const Complex& c2) {
+    std::cout << "\n\nWhen multiplying the two complex numbers:\n";
+    float realPart = c1.real * c2.real - c1.imaginary * c2.imaginary;
+    float imaginaryPart = c1.real * c2.imaginary + c1.imaginary * c2.real;
+
+    std::cout << std::setw(40) << realPart;
+
+    if (imaginaryPart != 0) {
+        if (imaginaryPart == 1)
+            std::cout << "+i";
+        else if (imaginaryPart == -1)
+            std::cout << "-i";
+        else if (imaginaryPart > 0)
+            std::cout << "+" << imaginaryPart << "i";
+        else
+            std::cout << imaginaryPart << "i";
+    }
+}
+
+void divideComplexNumbers(const Complex& c1, const Complex& c2) {
+    std::cout << "\n\nWhen dividing the two complex numbers:\n";
+    float realPart = (c1.real * c2.real + c1.imaginary * c2.imaginary) / (pow(c2.real, 2) + pow(c2.imaginary, 2));
+    float imaginaryPart = (c1.imaginary * c2.real - c1.real * c2.imaginary) / (pow(c2.real, 2) + pow(c2.imaginary, 2));
+
+    std::cout << std::setw(40) << realPart;
+
+    if (imaginaryPart != 0) {
+        if (imaginaryPart == 1)
+            std::cout << "+i";
+        else if (imaginaryPart == -1)
+            std::cout << "-i";
+        else if (imaginaryPart > 0)
+            std::cout << "+" << imaginaryPart << "i";
+        else
+            std::cout << imaginaryPart << "i";
+    }
+
+    std::cout << "/" << pow(c2.real, 2) + pow(c2.imaginary, 2);
+}

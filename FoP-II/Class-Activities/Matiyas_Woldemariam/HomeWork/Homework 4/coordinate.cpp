@@ -12,7 +12,7 @@ int main() {
 	//calling read function in coord variable
 	coord c =read();
 	//calling the print function with the point variable as an argument
-	print(p);
+	print(c);
 	return 0;
 }
 

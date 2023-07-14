@@ -7,6 +7,7 @@ float inteRate,overInterst=0,paymenT,interseT,loaN,originaLoan,annualRate;
 int i=0;
 
 void inpuT();
+void dataCalc();
 
 int main()
 {
@@ -22,4 +23,10 @@ void inpuT()
     cin>>inteRate;
     system("clear");
     cout<<setw(20)<<"Loan(in Birr)"<<setw(20)<<"Payment(in Birr)"<<setw(20)<<"Interst(in Birr)"<<setw(20)<<"Annual Rate(in %)"<<endl<<endl;
+}
+
+void dataCalc()
+{
+    paymenT=originalLoan/20;
+    interesT=(interRate*loaN)/12;
 }

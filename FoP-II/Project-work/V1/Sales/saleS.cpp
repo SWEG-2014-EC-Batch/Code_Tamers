@@ -82,6 +82,14 @@ void input(double sales[NUM_SALESPERSONS][NUM_PRODUCTS]){
             }
         }
     }
+double product_total(int product, double sales[NUM_SALESPERSONS][NUM_PRODUCTS]){
+
+         double product_t=0;
+         for (int salesperson = 1; salesperson <= NUM_SALESPERSONS; salesperson++) {
+             product_t += sales[salesperson - 1][product - 1];
+         }
+         return product_t;
+}
 
 void display_t(double sales[NUM_SALESPERSONS][NUM_PRODUCTS]){
     double grand_total = 0;

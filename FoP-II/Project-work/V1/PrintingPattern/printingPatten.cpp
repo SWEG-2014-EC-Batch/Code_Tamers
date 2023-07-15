@@ -18,5 +18,11 @@ void lower_part()
             cout << " ";
         for (int z = n; z >= 1; z--)
             cout << z;
+        
+        for (int x = 0; x <= n; x++)
+            cout << x;
+        cout << endl;
+    }
+}         
 
 

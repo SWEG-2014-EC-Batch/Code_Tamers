@@ -36,3 +36,9 @@ void outpuT()
         
         outpuT();
     }
+    else
+    {
+        cout<<endl<<"Summary:"<<endl<<"The interst rate is: "<<it.inteRate*100<<"%"
+            <<endl<<"Loan payment due(in years): "<<it.i;
+    }
+}

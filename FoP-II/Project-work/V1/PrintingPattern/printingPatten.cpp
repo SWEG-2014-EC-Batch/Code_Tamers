@@ -1,8 +1,16 @@
 #include <iostream>
-
 using namespace std;
 
 int num;
+void upper_part();
+void lower_part();
+
+int main() {
+    cout<<"Please enter an integer: ";
+    cin>>num;
+    upper_part();
+    lower_part();
+}
 
 void upper_part()
 {

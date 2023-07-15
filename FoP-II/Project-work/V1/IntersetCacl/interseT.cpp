@@ -45,3 +45,14 @@ void outpuT()
         dataCalc();
         outpuT();
     }
+    else if(loaN>=originaLoan)
+    {
+        cout<<setw(20)<<loaN<<setw(20)<<paymenT<<setw(20)<<interseT<<setw(20)<<annualRate<<"%"<<endl;
+        cout<<"The loan can't be payed with this interset rate."<<endl;
+    }
+    else
+    {
+        cout<<endl<<"Summary:"<<endl<<"The interst rate is: "<<inteRate*100<<"%"
+            <<endl<<"Loan payment due(in years): "<<i;
+    }
+}

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-float inteRate,overInterst=0,paymenT,interseT,loaN,originaLoan,annualRate;
+float inteRate,overInterst=0,paymenT,interesT,loaN,originaLoan,annualRate;
 int i=0;
 
 void inpuT();
@@ -29,8 +29,8 @@ void inpuT()
 
 void dataCalc()
 {
-    paymenT=originalLoan/20;
-    interesT=(interRate*loaN)/12;
+    paymenT=originaLoan/20;
+    interesT=(inteRate*loaN)/12;
 }
 
 

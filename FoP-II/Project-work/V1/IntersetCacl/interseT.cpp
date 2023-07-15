@@ -37,8 +37,6 @@ void dataCalc()
 
 }
 
-
-
 void outpuT()
 {
     dataCalc();

@@ -4,6 +4,15 @@ using namespace std;
 
 int num;
 
+void upper_part()
+{
+    for (int i = num; i >= 0; i--)
+    {
+        for (int k = num - i; k > 0; k--)
+            cout << " ";
+
+        for (int j = i; j >= 0; j--)
+            cout << j;
 
 
 

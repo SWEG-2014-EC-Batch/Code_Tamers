@@ -15,7 +15,6 @@ void read_and_display();
 float grand_sum(sales);
 float product_sum(sales,int num);
 
-
 int main()
 {
      write();
@@ -47,6 +46,65 @@ void write()
 
     // Close the file
     sale.close();
+}
+
+float grand_sum(sales e[])
+{
+    float tot=0;
+    for (int i=0;i<4;i++)
+    {
+        tot+=e[i].s_total;
+    }
+    return (tot);
+}
+
+float product_sum(sales e[],int num)
+{
+    float tot;
+    for (int i=0;i<4;i++)
+    {
+        tot+=e[i].product[num];
+    }
+    return (tot);
+}
+
+void display_t()
+{
+    cout<<"-------------------------------------------------------------------------------------------------\n";
+    cout << "Salesperson"<<"\t";
+
+
+    for (int prod=0;prod<5;prod++)
+     {
+         cout << "Product " <<prod+1<<"\t";
+     }
+     cout << "Total"<<"\t\t" << "Bonus" << endl;
+
+
+    for (int sp=0;sp<4;sp++)
+        {
+            cout << sp+1 <<"\t\t";
+
+            for (int pr=0; pr < 5; pr++) {
+                cout << emp[sp].product[pr]<<"\t\t";}
+
+                cout<<emp[sp].s_total<<"\t\t";
+
+                emp[sp].bonus = 0.05 * emp[sp].s_total;
+                cout << emp[sp].bonus << endl;
+
+        }
+
+    // Print row cross totals
+    cout << "Total"<<"\t\t";
+    for (int pr = 0; pr < 5; pr++)
+        {
+        cout << product_sum(emp,pr)<<"\t\t";
+        }
+
+    cout << grand_sum(emp) << endl;
+     cout<<"--------------------------------------------------------------------------------------------------\n";
+
 }
 
  void read_and_display()

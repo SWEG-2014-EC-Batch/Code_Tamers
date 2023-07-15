@@ -37,12 +37,12 @@ void dataCalc()
 
 void outpuT()
 {
-    void dataCalc();
+    dataCalc();
     if(loaN<originaLoan&&loaN>=0)
     {
         i++;
         cout<<setw(20)<<loaN<<setw(20)<<paymenT<<setw(20)<<interseT<<setw(20)<<annualRate<<"%"<<endl;
-        dataCalc();
+        
         outpuT();
     }
     else if(loaN>=originaLoan)

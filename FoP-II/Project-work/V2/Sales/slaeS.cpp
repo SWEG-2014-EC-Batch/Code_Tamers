@@ -48,3 +48,24 @@ void write()
     // Close the file
     sale.close();
 }
+
+
+
+void display_product(int num)
+{
+    for(int sp=0;sp<4;sp++)
+        {
+        cout<<"sales person "<<sp+1<<" total="<<emp[sp].product[num-1]<<"ETB"<<endl;
+    }
+}
+
+void display_sales_p(int sales_p)
+{
+    for(int pr=0;pr<5;pr++){
+                cout<<"product "<<pr+1<<" total="<<emp[sales_p-1].product[pr]<<"ETB"<<endl;
+             }
+            cout<<"total value of product sold by salesperson"<<sales_p<<"= "<<emp[sales_p-1].s_total<<"ETB\n";
+            emp[sales_p-1].bonus = 0.05 * emp[sales_p-1].s_total;
+            cout<<"salesperson "<<sales_p<<" got a bonus of: "<<emp[sales_p-1].bonus;
+            cout<<"\n_ _ _";
+}

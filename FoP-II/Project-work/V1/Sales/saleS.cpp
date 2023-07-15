@@ -83,6 +83,46 @@ void input(double sales[NUM_SALESPERSONS][NUM_PRODUCTS]){
         }
     }
 
+void display_t(double sales[NUM_SALESPERSONS][NUM_PRODUCTS]){
+    double grand_total = 0;
+    cout<<"-------------------------------------------------------------------------------------------------\n";
+    cout << "Salesperson"<<"\t";
+
+
+    for (int product = 1; product <= NUM_PRODUCTS; product++) {
+         cout << "Product " << product<<"\t";
+     }
+     cout << "Total"<<"\t\t" << "Bonus" << endl;
+
+
+    for (int salesperson = 1; salesperson <= NUM_SALESPERSONS; salesperson++) {
+            cout << salesperson <<"\t\t";
+
+            for (int product = 1; product <= NUM_PRODUCTS; product++) {
+                double sales_amount = sales[salesperson - 1][product - 1];
+                cout << sales_amount<<"\t\t";}
+
+                double total_sales = salesperson_total(salesperson, sales);
+                grand_total +=total_sales;
+
+                cout<<total_sales<<"\t\t";
+
+                double bonus = 0.05 * total_sales;
+                cout << bonus << endl;
+
+    }
+
+    // Print row cross totals
+    cout << "Total"<<"\t\t";
+    for (int product = 1; product <= NUM_PRODUCTS; product++){
+        cout << product_total(product, sales)<<"\t\t";
+    }
+
+    cout << grand_total << endl;
+     cout<<"--------------------------------------------------------------------------------------------------\n";
+
+}
+
 void display_product(int product, double sales[NUM_SALESPERSONS][NUM_PRODUCTS]) 
 {
     for(int salespersonw=1;salesperson<=NUM_SALESPERSONS;++salesperson) 

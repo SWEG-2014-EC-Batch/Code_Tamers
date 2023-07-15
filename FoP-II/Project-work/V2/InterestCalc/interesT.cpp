@@ -10,7 +10,6 @@ int i=0;
 
 
 
-
 void outpuT();
 
 

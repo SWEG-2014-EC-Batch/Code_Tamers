@@ -31,6 +31,10 @@ void dataCalc()
 {
     paymenT=originaLoan/20;
     interesT=(inteRate*loaN)/12;
+     annualRate=(loaN/originaLoan)*100;
+    overInterst=paymenT-interseT;
+    loaN-=overInterst;
+
 }
 
 

@@ -14,10 +14,11 @@ void upper_part()
         for (int j = i; j >= 0; j--)
             cout << j;
 
-
-
-
-
+        for (int m=1;m <= i; m++)
+            cout<<m;
+        cout<<endl;
+    }
+}
 
 void lower_part()
 {

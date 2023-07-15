@@ -15,12 +15,15 @@ void outpuT();
 
 
 
+void dataCalc()
+{
 
 
-
-
-
-
+    
+    it.annualRate=(it.loaN/it.originaLoan)*100;
+    it.overInterst=it.paymenT-it.interseT;
+    it.loaN-=it.overInterst;
+}
 
 
 void outpuT()

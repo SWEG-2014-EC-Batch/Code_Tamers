@@ -49,7 +49,67 @@ void write()
     sale.close();
 }
 
+ void read_and_display()
+{
+    int sales_p, prod;
+    double amount;
 
+    // Open the file for reading
+    sale.open("sales.txt", ios::in);
+
+    // Read data from file
+    while (sale >> sales_p >> prod >> amount) {
+        // Update sales array
+        emp[sales_p-1].product[prod-1] += amount;
+        emp[sales_p-1].s_total += amount;
+    }
+    // Close the file
+    sale.close();
+
+    char c_d;//c_d is the choice of display
+    cout<<",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n";
+    cout<<"enter \'a\' or \'A\' if you want a summary table.\nor\n ";
+    cout<<"enter \'b\' or \'B\' if you want to search for a particular product or salesperson record.\n";
+    cout<<",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,\n-->";
+    cin>>c_d;
+    cout<<endl;
+
+    if(c_d == 'a' or c_d == 'A'){
+            display_t();
+
+    }
+    else if(c_d == 'b' or c_d == 'B'){
+        char s_p;//s_p is salesperson or product
+        cout<<"enter \'x\' or \'X\' if you want to know about a particular product.\nor\n";
+        cout<<"enter \'y\' or \'Y\' if you want to know about a particular sales person.\n-->";
+        cin>>s_p;
+
+
+        if (s_p=='x' || s_p=='X'){
+            int prod;
+            cout<<"which product would you like to know about?\n";
+            cout << "Enter product number (1 to 5): ";
+            cin >> prod;
+            cout<<"_ _ _\n\n";
+            cout<<"the details for product"<<prod<<" are:\n";
+            display_product(prod);
+            cout<<"total amount of product "<<prod<<" sold= "<<product_sum(emp,prod-1)<<"ETB";
+            cout<<"\n_ _ _";
+
+        }
+
+        else{
+            //display_person(sales);
+            int sales_p;
+            cout<<"which salesperson would you like to know about?\n";
+            cout << "Enter salesperson number (1 to 4): ";
+            cin >> sales_p;
+            cout<<"_ _ _\n\n";
+            cout<<"salesperson "<<sales_p<<" got the following amount from each product:\n";
+            display_sales_p(sales_p);
+            }
+        }
+}
 
 void display_product(int num)
 {

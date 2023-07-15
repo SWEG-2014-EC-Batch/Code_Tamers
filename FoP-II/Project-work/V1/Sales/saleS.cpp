@@ -4,6 +4,7 @@ const int NUM_SALESPERSONS = 4;
 const int NUM_PRODUCTS = 5;
 
 void input(double sales[NUM_SALESPERSONS][NUM_PRODUCTS]);
+void display_product(int product, double sales[NUM_SALESPERSONS][NUM_PRODUCTS]);
 
 int main(){
     double sales[NUM_SALESPERSONS][NUM_PRODUCTS]= {0};
@@ -81,4 +82,13 @@ void input(double sales[NUM_SALESPERSONS][NUM_PRODUCTS]){
             }
         }
     }
+
+void display_product(int product, double sales[NUM_SALESPERSONS][NUM_PRODUCTS]) 
+{
+    for(int salespersonw=1;salesperson<=NUM_SALESPERSONS;++salesperson) 
+    {
+        double sp=slaes[salesperson-1][product-1]; //sp is each salesperson's value of the product sold
+        cout<<"sales person "<<salesperson<<" total="<<sp<<"ETB"<<endl;
+    }
+}
 

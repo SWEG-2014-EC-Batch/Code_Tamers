@@ -8,10 +8,12 @@ int i=0;
 
 void inpuT();
 void dataCalc();
+void outpuT();
 
 int main()
 {
     inpuT();
+    outpuT();
 }
 
 void inpuT()
@@ -30,3 +32,16 @@ void dataCalc()
     paymenT=originalLoan/20;
     interesT=(interRate*loaN)/12;
 }
+
+
+
+void outpuT()
+{
+    void dataCalc();
+    if(loaN<originaLoan&&loaN>=0)
+    {
+        i++;
+        cout<<setw(20)<<loaN<<setw(20)<<paymenT<<setw(20)<<interseT<<setw(20)<<annualRate<<"%"<<endl;
+        dataCalc();
+        outpuT();
+    }

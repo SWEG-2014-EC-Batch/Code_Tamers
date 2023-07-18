@@ -20,7 +20,7 @@ int main() {
 
 void input() {
     int i=0;
-    while(i<5)
+    while(i<10)
     {
         cout<<setw(40)<<"Employee "<<i+1<<endl;
         cout<<setw(30)<<"Enter Id_num: ";
@@ -36,8 +36,8 @@ void input() {
 }
 
 void order() {
-    for (int i = 0; i < 5 - 1; ++i) {
-        for (int j = 0; j < 5 - i - 1; ++j) {
+    for (int i = 0; i < 10 - 1; ++i) {
+        for (int j = 0; j < 10 - i - 1; ++j) {
             if (emp[j].id > emp[j + 1].id) {
                 // all the position since they get affected by the sorting
                 int temp = emp[j].id;
@@ -68,7 +68,7 @@ void write_file() {
     qt.open("employees.txt", ios::out);
 
     if(qt.is_open()) {
-        for(int i=0;i<5;++i)
+        for(int i=0;i<10;++i)
         {
             qt<<emp[i].id<<" "<<emp[i].sex<<" "<<emp[i].hrly_pay<<" "<<emp[i].yrs_spent<<endl;
         }

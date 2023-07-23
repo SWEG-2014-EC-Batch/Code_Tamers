@@ -8,7 +8,9 @@ char lower(int n, int i=1);
 void display();
 
 // main block;
-
+int main() {
+    display();
+}
 
 
 char upper(int n, int i) {
@@ -29,3 +31,10 @@ char upper(int n, int i) {
         }
         number--;
     }
+    if(n!=0)
+        cout<<endl;
+
+    if(n==0) //base case
+        return ' ';
+    return upper(n-1, i+1);
+}

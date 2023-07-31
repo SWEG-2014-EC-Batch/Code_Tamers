@@ -12,6 +12,16 @@ int main() {
     display();
 }
 
+void input(int& n) {
+    label:
+        cout<<"enter a positive number to see code tamers pattern: ";
+        cin>>n;
+    if(n<=0) {
+        cout<<"please enter a positive number!\n";
+        goto label;
+    }
+    cout<<endl;
+}
 
 char upper(int n, int i) {
     int space=n-i, number=n;

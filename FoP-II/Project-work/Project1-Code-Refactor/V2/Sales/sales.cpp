@@ -60,7 +60,7 @@ float grand_sum(sales e[])
 
 float product_sum(sales e[],int num)
 {
-    float tot;
+    float tot=0;
     for (int i=0;i<4;i++)
     {
         tot+=e[i].product[num];

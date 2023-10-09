@@ -9,7 +9,7 @@ void searchAndDelete(string itemName)
         // Check if the item exists in the current category
         if (category.second.find(itemName) != category.second.end()) 
         {
-            cout << "The item " << itemName << " is found in the category " << category.first << ".\n Confirm deletion:\n 1. Yes\n2. No";
+            cout << "The item " << itemName << " is found in the category " << category.first << ".\n Confirm deletion:\n1. Yes\n2. No\n->";
             cin>>choice;
 
             if(choice==1)

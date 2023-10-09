@@ -11,7 +11,7 @@ void searchAndEditItem(string itemName)
             cout << "The item " << itemName << " is found in the category " << category.first << ".\n";
 
             // Ask the user what they want to edit
-            cout << "What do you want to edit? (pricePurchased, priceSold, numPurchased, numSold): ";
+            cout << "What do you want to edit? (pricePurchased, priceSold, numPurchased, numSold):\n->";
             string fieldToEdit;
             cin >> fieldToEdit;
 
@@ -38,7 +38,7 @@ void searchAndEditItem(string itemName)
 
     // The item is not found in the store
     cout << "The item " << itemName << " is not found in the store.\n";
-    cout << "Please enter the category of the item: ";
+    cout << "Please enter the category of the item:\n->";
     string category;
     cin >> category;
 

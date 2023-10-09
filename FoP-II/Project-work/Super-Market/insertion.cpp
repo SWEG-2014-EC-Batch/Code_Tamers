@@ -2,55 +2,37 @@
 
 ItemInfo itemTemp;
 
-void Insertion()
-{
-    string Prod_name;
-    int choice;
-    cout<<"Select a catagory:\n";
-    for(int i=0;i<Category.size();i++)
-    {
-        cout<<i+1<<". "<<Category[i]<<endl;
-    }
-    cout<<"->";
-    cin>>choice;
+void Insertion() {
+    string itemName;
+    double pricePurchased, priceSold;
+    int numPurchased;
 
-    while (true)
-    {
-        if (choice!=0)
-        {
-            cout<<"Enter the product name:\n->";
-            cin>>Prod_name;
+    cout << "Enter the name of the item you want to insert: ";
+    cin >> itemName;
 
-            cout<<"Enter the number of "<<Prod_name<<" purchased: ";
-            cin>>itemTemp.numPurchased;
+    cout << "Enter the price at which the item was purchased: ";
+    cin >> pricePurchased;
 
-            cout<<"Enter the price of "<<Prod_name<<" when purchased: ";
-            cin>>itemTemp.pricePurchased;
+    cout << "Enter the price at which the item will be sold: ";
+    cin >> priceSold;
 
-            cout<<"Enter the number of "<<Prod_name<<" sold: ";
-            cin>>itemTemp.numSold;
+    cout << "Enter the number of items purchased: ";
+    cin >> numPurchased;
 
-            cout<<"Enter the price of "<<Prod_name<<" when sold: ";
-            cin>>itemTemp.priceSold;
-    
-            cout<<endl;
-            
-            vecStore[month][Category[choice-1]][Prod_name]=itemTemp;
+    for (auto& categoryPair : vecStore[month]) {
+        auto& items = categoryPair.second;
 
-            save_data();
-            
-            for(int i=0;i<Category.size();i++)
-            {
-                cout<<i+1<<". "<<Category[i]<<endl;
-            }
-            cout<<"Enter 0 to go back to menu\n->";
-            cin>>choice;
-        }
+        if (items.count(itemName) > 0) {
+            auto& itemInfo = items[itemName];
+            int numUnsold = itemInfo.numPurchased - itemInfo.numSold;
+            cout << numUnsold << " of " << itemName << " were not sold from last month." << endl;
 
-        else if (choice==0)
-        {
-            Menu();
+            itemInfo.pricePurchased = pricePurchased;
+            itemInfo.priceSold = priceSold;
+            itemInfo.numPurchased += numPurchased;
+        } else {
+            ItemInfo newItemInfo = {pricePurchased, priceSold, numPurchased, 0};
+            items[itemName] = newItemInfo;
         }
     }
-    
 }

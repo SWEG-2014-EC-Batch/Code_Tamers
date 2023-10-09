@@ -21,7 +21,7 @@ extern vector<unordered_map<string, unordered_map<string, ItemInfo>>> vecStore;
 
 void calc_Revenue();
 void Insertion();
-void searchAndEditItem(string itemName);
+void Purchase();
 void searchAndDelete(string itemName);
 void Menu();
 void Display();

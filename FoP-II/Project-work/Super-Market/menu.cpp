@@ -5,21 +5,18 @@ void Menu()
     string Prod_name;
     int choice;
     cout<<setw(40)<<"Current month is: "<<month<<
-        "\n"<<setw(20)<<"Enter:\n"<<" 1. Insert data\n 2. Search and delete\n 3. Search and edit\n 4. Show ratings\n 5. Save the data\n 6. Show table\n 7. Choose month\n 8. Summary\n 0. Exit\n->";
+        "\n"<<setw(20)<<"Enter:\n"<<" 1. Purchase\n 2. Insert a product\n 3. Search and delete\n 4. Show ratings\n 5. Save the data\n 6. Show table\n 7. Choose month\n 8. Summary\n 0. Exit\n->";
     cin>>choice;
     switch (choice)
     {
     case 1:
-        {
-            Insertion();
-        }
+    {
+        Purchase();
+    }
         break;
     case 2:
     {
-        cout<<"Enter product name:\n->";
-        cin>>Prod_name;
-        searchAndDelete(Prod_name);
-        Menu();
+        Insertion();
         break;
     }
 
@@ -27,7 +24,7 @@ void Menu()
     {
         cout<<"Enter product name:\n->";
         cin>>Prod_name;
-        searchAndEditItem(Prod_name);
+        searchAndDelete(Prod_name);
         Menu();
         break;
     }

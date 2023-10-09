@@ -19,7 +19,8 @@ extern int month;
 extern vector<string> Category;
 extern vector<unordered_map<string, unordered_map<string, ItemInfo>>> vecStore;
 
-void calc_Revenue();
+void calc_Revenue_iteam();
+void calc_Revenue_cat();
 void Insertion();
 void Purchase();
 void searchAndDelete(string itemName);

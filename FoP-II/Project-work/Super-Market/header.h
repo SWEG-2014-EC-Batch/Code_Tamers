@@ -16,7 +16,6 @@ struct ItemInfo {
 };
 
 extern int month;
-extern vector<string> Category;
 extern vector<unordered_map<string, unordered_map<string, ItemInfo>>> vecStore;
 
 void calc_Revenue_iteam();

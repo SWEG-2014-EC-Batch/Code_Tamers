@@ -14,9 +14,9 @@ void Insertion()
     cout<<"->";
     cin>>choice;
 
-    while (choice!=0)
+    while (true)
     {
-        if (choice!=7)
+        if (choice!=0)
         {
             cout<<"Enter the product name:\n->";
             cin>>Prod_name;
@@ -43,11 +43,11 @@ void Insertion()
             {
                 cout<<i+1<<". "<<Category[i]<<endl;
             }
-            cout<<"->";
-            
+            cout<<"Enter 0 to go back to menu\n->";
+            cin>>choice;
         }
 
-        else if (choice==7)
+        else if (choice==0)
         {
             Menu();
         }

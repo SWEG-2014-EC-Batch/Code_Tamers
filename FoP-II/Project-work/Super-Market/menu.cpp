@@ -56,8 +56,23 @@ void Menu()
     }
     case 8:
     {
-        cout<<"The total revenue of each catagory:\n ";
-        calc_Revenue();
+        int c;
+        cout<<"Choose:\n1. Category revenue\n2. Iteam revenue\n->";
+        cin>>c;
+        switch (c)
+        {
+            case 1:
+            {
+                calc_Revenue_cat();
+            }
+            case 2:
+            {
+                calc_Revenue_iteam();
+            }
+        default:
+            break;
+        }
+
         Menu();
         break;
     }

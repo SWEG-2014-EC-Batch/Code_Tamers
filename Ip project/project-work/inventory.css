@@ -1,0 +1,112 @@
+:root {
+    --prmary-color:#828390;
+}
+
+nav {
+    width: 90%;
+    top: 0;
+    left: 0;
+    padding: 20px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color:var(--prmary-color);
+}
+
+nav h2 {
+    font-family: 'Rubik Maps', system-ui;
+    font-size: 26px;
+    letter-spacing: 8px;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin-left: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color:var(--prmary-color);
+    padding-left: 6px;
+    font-family: 'Rubik Maps', system-ui;
+    cursor: pointer;
+    transform: font-size 0.5s;
+    font-size: 15px;
+}
+
+nav ul li a:hover {
+    font-size: 17px;
+}
+
+h3 {
+    margin: 20px 35px;
+}
+h3 span {
+    color: red;
+}
+
+.searchBar {
+    width: 100%;
+    background: #eceff1;
+}
+.searchBar select {
+    width: 240px;
+    padding: 20px 20px;
+    margin: 40px 15px 10px ;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+
+.inventory-list-container {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2% 2%; 
+}
+
+.inventory-content {
+    text-align: center;
+    max-width: 300px;
+    border-radius: 5px;
+    margin: 15px 17px;
+    overflow: hidden;
+    box-shadow: 0 0 5px #828390;
+    transition: box-shadow 0.5s;
+    cursor: pointer;
+}
+
+.inventory-content:hover {
+    box-shadow: 0 5px 13px #828390;
+}
+
+.inventory-content img {
+    width: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.inventory-content hr {
+    width: 90%;
+}
+
+.inventory-content #year{
+    padding: 2px 4px;
+    border-radius: 4px;
+    background: orange;
+}
+
+.inventory-content p {   
+    padding: 10px;
+    font-size: 20px;
+}
+
+.inventory-content label {
+    margin: 30px;
+    font-size: 26px;
+}

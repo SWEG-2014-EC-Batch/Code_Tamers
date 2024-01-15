@@ -113,21 +113,23 @@ nav ul li a:hover{
     padding-bottom: 5px;
 }
 
-h2 .FEATURED{
+.FEATURED{
+    margin: 5px 10%;
     font-family: 'Rubik Maps', system-ui;
-    font-size: 30px;
+    font-size: 37px;
     color: var(--dark-mode);
     margin-bottom:15px;
 }
 
-.car-list {  
+.car-list {
+    width: 100%;
     display: flex;
-    flex-direction: row;
+    align-items: left;
     flex-wrap: wrap;
     margin: 2% 8%;
 }
 
-.car-list .car-content {
+.car-content {
     background: var(--dark-mode);
     color: #fff;
     overflow: hidden;
@@ -135,12 +137,18 @@ h2 .FEATURED{
     border-radius: 14px;
     margin: 10px 15px;
     text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.5s;    
+}
+
+.car-content:hover {
+    box-shadow: 0 10PX 15px var(--dark-mode);
 }
 
 .car-content img {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover;  
+     width: 100%;
+     height: 50%;
+     object-fit: cover;
 }
 
 .car-content p {
@@ -151,7 +159,7 @@ h2 .FEATURED{
 .car-content label{
     font-size: 26px;
     font-weight: bold;
-    padding: 5px 23px;
+    padding: 10px 23px;
     display: block;
 }
 
@@ -164,7 +172,7 @@ h2 .FEATURED{
 .car-content ul li{
     align-items: center;
     display:inline-block;
-    margin:5px 12px;
-    padding: 15px 10px;
+    margin: 10px 0 0 12px;
+    padding: 10px 0 0 10px;
     font-size: 17px;
 }

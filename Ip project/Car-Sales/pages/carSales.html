@@ -9,6 +9,7 @@
     <!--Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="../images/favicon.ico" type="image/x-icon" sizes="32x32">
     <link href="https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&family=Rubik+Glitch&family=Rubik+Maps&family=Shadows+Into+Light&family=Tektur&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@1,500&family=Salsa&display=swap" rel="stylesheet">
@@ -20,16 +21,16 @@
 <body>
     <div class="video-container">
         <video autoplay loop muted>
-            <source src="C:\Users\matiy\Downloads\Video\Introducing.mp4" type="video/mp4">
+            <source src="../video/test.mp4" type="video/mp4">
         </video>
 
         <nav>
             <h2>TAMERS</h2>
             <ul>
                 <li><a href="#">HOME</a></li>
-                <li><a href="inventory.html">INVENTORY</a></li>
+                <li><a href="./inventory.html">INVENTORY</a></li>
                 <li><a href="#feature">FEATURED CARS</a></li>
-                <li><a href="#">CONTACT US</a></li>
+                <li><a href="./contactus.html">CONTACT US</a></li>
             </ul>
         </nav>
 
@@ -38,6 +39,7 @@
             <h2>Refer To The List</h2>
 
             <select name="make" id="make">
+                <option value="" disabled selected>Choose a brand</option>
                 <option value="1">BMW</option>
                 <option value="2">Mercedese</option>
                 <option value="3">Toyota</option>
@@ -45,15 +47,15 @@
                 <option value="5">Volswagen</option>
                 <option value="6">Pegeyout</option>
             </select>
-
-            <select name="moell" id="model">
-                <option value="a"></option>
-            </select>
-
+            <form id="make" action="">
+                <fieldset>
+                    <input type="text" id="search-part" class="search-part" placeholder="Search">
+                </fieldset>
+            </form>
             <button type="submit"><i class='bx bx-search'></i></button>
         </div>
     </div>
-
+    <br>
     <h2 class="FEATURED" id="feature">Accent Cars</h2>
 
     <div class="car-list">

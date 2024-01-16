@@ -1,0 +1,240 @@
+:root {
+    --dark-mode: #0a3556;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    text-align: center;
+    position: relative;
+    margin-top: 3%;
+}
+
+.content select {
+    padding: 20px 2%;
+    color: #fff;
+    background: #12232f;
+    min-width: 350px;
+    font-size: 20px;
+    border-radius: 8px;
+    border-color: #03253f;
+    font-family: 'Genos', sans-serif;
+    margin-bottom: 4.5rem;
+}
+.content form {
+    padding: 20px 2%;
+    color: #fff;
+    min-width: 350px;
+    font-size: 32px;
+    font-family: 'Genos', sans-serif;
+    margin-bottom: 4.5rem;
+}
+
+.content form fieldset
+{
+    border: 0px;
+}
+
+.content form fieldset .search-part
+{
+    background-color: #12232f;
+    border-color: #fff;
+    border: 1px;
+    padding-left: 10%;
+    color: #fff;
+    font-size: 2rem;
+    font-family: 'Genos', sans-serif;
+
+}
+.content form fieldset label
+{
+    background-color: #12232f;
+    font-family: 'Genos', sans-serif;
+
+}
+.content select option{
+    font-family: 'Shadows Into Light', cursive;
+    color: #fff;
+}    
+
+.content button {
+    margin-top: 14px;
+    font-size: 50px;
+    border-radius: 10px;
+    background: #ffa500;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+
+nav {
+    width: 90%;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 20px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2%;
+}
+nav h2 {
+    color: #fff;
+    font-family: 'Rubik Maps', system-ui;
+    font-size: 26px;
+    letter-spacing: 8px ;
+    cursor: pointer;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 15px;        
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Rubik Maps', system-ui;
+    font-size: 15px;
+    transform: font-size 0.5s;
+    cursor: pointer;
+}
+
+nav ul li a:hover{
+    font-size: 17px;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #03253f;
+}
+
+.FEATURED{
+    margin: 5px 10%;
+    font-family: 'Rubik Maps', system-ui;
+    font-size: 37px;
+    color: var(--dark-mode);
+    margin-bottom:15px;
+}
+
+.car-list {
+    width: 100%;
+    display: flex;
+    align-items: left;
+    flex-wrap: wrap;
+    margin: 2% 8%;
+}
+
+.car-content {
+    background: var(--dark-mode);
+    color: #fff;
+    overflow: hidden;
+    width: 550px;
+    border-radius: 14px;
+    margin: 10px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: box-shadow 0.5s;    
+}
+
+.car-content:hover {
+    box-shadow: 0 10PX 15px var(--dark-mode);
+}
+
+.car-content a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.car-content img {
+     width: 100%;
+     height: 50%;
+     object-fit: cover;
+}
+
+.car-content p {
+    padding: 15px 23px;
+    font-size: 25px;
+}
+ 
+.car-content label{
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px 23px;
+    display: block;
+}
+
+.car-content hr {
+    background: #0a3556;
+    width: 90%;
+    margin: 5px 15px;
+}
+
+.car-content ul li{
+    align-items: center;
+    display:inline-block;
+    margin: 10px 0 0 12px;
+    padding: 10px 0 0 10px;
+    font-size: 17px;
+}
+
+footer {
+    background: linear-gradient(5deg,#0a3556, #03253f);
+    color:#fff;
+    width: 100%;
+    margin-top: 7%px;
+    padding: 10px;
+    text-align: center;
+}
+
+footer h1 {
+    font-size: 70px;
+    font-family: 'Rubik Maps', system-ui;
+    letter-spacing: 8px;
+    padding-top: 4%;
+    padding-bottom: 2%;
+}
+
+footer p {
+    font-size: 23px;
+    color: #9e9898;
+}
+
+footer .social-media {
+    padding: 15px 10px;
+}
+
+.social-media i {
+    margin-left: 2px;
+    padding: 8px 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.social-media i:hover {
+    background: #fff;
+    color: #0a3556;
+    border-radius: 3600px;
+}
+
+footer hr {
+    margin: 14px;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.tel p {
+    font-size: 23;
+}
+footer label {
+    text-align: center;
+    font-size: 23px;
+}
+
+label span {
+    color: rgb(208, 22, 22);
+}

@@ -98,7 +98,7 @@ nav ul li a:hover{
     font-size: 20px;
     border-radius: 8px;
     font-family: 'Genos', sans-serif;
-    margin-bottom: 12%;
+    margin-bottom: 3%;
 }
 .content select option{
     font-family: 'Shadows Into Light', cursive;
@@ -111,6 +111,28 @@ nav ul li a:hover{
     background: #ffa500;
     padding-top: 10px;
     padding-bottom: 5px;
+}
+
+.content form {
+    padding: 5px 5px 5px 100px;
+    color: #fff;
+    min-width: 350px;
+    font-size: 32px;
+    font-family: 'Genos', sans-serif;
+    display: inline-block;
+}
+
+.content form fieldset #search-part
+{
+    border: 1px;
+    color: #000;
+    font-size: 2rem;
+    font-family: 'Genos', sans-serif;
+}
+
+.content form fieldset
+{
+    border: 0px;
 }
 
 .FEATURED{

@@ -136,7 +136,7 @@ nav ul li a:hover{
 }
 
 .FEATURED{
-    margin: 5px 10%;
+    margin: 12% 10%;
     font-family: 'Rubik Maps', system-ui;
     font-size: 37px;
     color: var(--dark-mode);
@@ -148,7 +148,7 @@ nav ul li a:hover{
     display: flex;
     align-items: left;
     flex-wrap: wrap;
-    margin: 2% 8%;
+    margin: 1% 8%;
 }
 
 .car-content {

@@ -107,3 +107,118 @@ body {
     text-align: center;
     padding: 10px;
 }
+
+footer {
+  background: linear-gradient(5deg,#0a3556, #03253f);
+  color:#fff;
+  width: 100%;
+  margin-top: 7%px;
+  padding: 10px;
+  text-align: center;
+}
+
+footer h1 {
+  font-size: 70px;
+  font-family: 'Rubik Maps', system-ui;
+  letter-spacing: 8px;
+  padding-top: 4%;
+  padding-bottom: 2%;
+}
+
+footer p {
+  font-size: 23px;
+  color: #9e9898;
+}
+
+footer .social-media {
+  padding: 15px 10px;
+}
+
+.social-media i {
+  margin-left: 2px;
+  padding: 8px 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.social-media i:hover {
+  background: #fff;
+  color: #0a3556;
+  border-radius: 3600px;
+}
+
+footer hr {
+  margin: 14px;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.tel p {
+  font-size: 23;
+}
+footer label {
+  text-align: center;
+  font-size: 23px;
+}
+
+label span {
+  color: rgb(208, 22, 22);
+}
+
+
+footer {
+  background: linear-gradient(5deg,#0a3556, #03253f);
+  color:#fff;
+  width: 100%;
+  margin-top: 7%px;
+  padding: 10px;
+  text-align: center;
+}
+
+footer h1 {
+  font-size: 70px;
+  font-family: 'Rubik Maps', system-ui;
+  letter-spacing: 8px;
+  padding-top: 4%;
+  padding-bottom: 2%;
+}
+
+footer p {
+  font-size: 23px;
+  color: #9e9898;
+}
+
+footer .social-media {
+  padding: 15px 10px;
+}
+
+.social-media i {
+  margin-left: 2px;
+  padding: 8px 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.social-media i:hover {
+  background: #fff;
+  color: #0a3556;
+  border-radius: 3600px;
+}
+
+footer hr {
+  margin: 14px;
+  width: 50%;
+  margin-left: 25%;
+}
+
+.tel p {
+  font-size: 23;
+}
+footer label {
+  text-align: center;
+  font-size: 23px;
+}
+
+label span {
+  color: rgb(208, 22, 22);
+}

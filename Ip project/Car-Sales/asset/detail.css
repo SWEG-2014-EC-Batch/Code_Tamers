@@ -56,9 +56,9 @@ nav ul li a:hover{
 
 
 .img-container {
-    width: 1000px;
+    width: 700px;
     height: 500px;
-    margin: 12px 0 12px 5%;
+    margin: 5px 0 12px 2%;
 
 }
 
@@ -71,13 +71,13 @@ nav ul li a:hover{
     gap: 18px;
 }
 
-.slide::-webkit-scrollbar {
-    color: #0a3556;
+.slide::-webkit-scrollbar-thumb {
+    display: none;
 }
 
 .slide .cascade {
-    width: 1000px;
-    height: 700px;
+    width: 700px;
+    height: 500px;
     object-fit: cover;
     cursor: pointer;
     transition: transform 0.5s;
@@ -89,7 +89,7 @@ nav ul li a:hover{
 
 
 .details {
-    margin: 5px 25px;
+    margin: 5px 6%px;
     padding: 10px 2%;
 }
 
@@ -107,9 +107,10 @@ nav ul li a:hover{
 
 .spec {
     background: rgba(135, 210, 210, 0.459);
-    width: 500px;
+    width: 400px;
     border-radius: 7px;
     margin-bottom: 10%;
+    margin-right: 8%;
 }
 
 

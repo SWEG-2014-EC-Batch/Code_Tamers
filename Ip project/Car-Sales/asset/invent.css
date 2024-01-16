@@ -1,0 +1,73 @@
+:root
+{
+    --hover: cyan;
+    --box-shadow:#000;
+}
+
+.prodcuts h1
+{
+    color: #000;
+    font-family: 'Rubik Maps', system-ui;
+    font-size: 26px;
+    letter-spacing: 8px ;
+    cursor: pointer;
+}
+.prodcuts .prod-slider
+{
+    border: 0px solid;
+    padding: 1rem;
+}
+
+.prodcuts .prod-slider:first-child
+{
+    margin-bottom: 2rem;
+}
+
+.prodcuts .prod-slider .boxes
+{
+    
+    border: 1px solid cyan;
+    background: #fff;
+    border-radius: .6rem;
+    text-align: center;
+    padding: 3rem 2rem;
+    outline-offset: -1rem;
+    box-shadow: var(--box-shadow);
+    transition: 0.2s linear;
+}
+
+.prodcuts .prod-slider .boxes a {
+    background: rgb(221, 48, 9);
+    color: #fff;
+    margin: 2% 2%;
+    padding: 20px 20px;
+    font-size: 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: padding 0.5s;
+}
+
+.prodcuts .prod-slider .boxes:hover
+{
+    box-shadow: 1px 1px 10px 4px var(--hover);
+}
+
+.prodcuts .prod-slider .boxes img
+{
+    max-width: 45rem;
+    height: 25rem;
+}
+
+.prodcuts .prod-slider .boxes h1
+{
+    font-family:cursive ;
+    font-size: 2.5rem;
+}
+
+.prodcuts .prod-slider .boxes .price
+{
+    font-family:cursive;
+    text-align: left;
+    font-size: 2rem;
+    padding: .5rem 0;
+}

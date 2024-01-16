@@ -53,19 +53,15 @@ body {
     color: #888;
   }
 
-
-
-
-
   .contact-form {
-    float: right;
+    /* float: right; */
     background-color: #f5f5f5;
-    padding: 20px;
+    padding: 1rem 5rem 1rem 5rem;
     border-radius: 5px;
     width: 30%;
     margin: 0 auto;
-    box-sizing: border-box;
     margin-right: 140px;
+    box-sizing: border-box;
   }
   
   .contact-form h2 {
@@ -147,26 +143,8 @@ footer .social-media {
   border-radius: 3600px;
 }
 
-footer hr {
-  margin: 14px;
-  width: 50%;
-  margin-left: 25%;
-}
-
-.tel p {
-  font-size: 23;
-}
-footer label {
-  text-align: center;
-  font-size: 23px;
-}
-
-label span {
-  color: rgb(208, 22, 22);
-}
-
-
 footer {
+  display: block;
   background: linear-gradient(5deg,#0a3556, #03253f);
   color:#fff;
   width: 100%;

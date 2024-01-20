@@ -116,6 +116,7 @@ Item* searchItem(Item* head, string itemToSell){
 
 void Sell_item(string catagory, string itemToSell){
 
+
     if (categories.find(catagory) != categories.end()) {
         Item* head = categories[catagory];
         // Do something with 'item'
@@ -124,16 +125,15 @@ void Sell_item(string catagory, string itemToSell){
             // Item found
             cout << "Item: " << item->name << "\n";
             cout << "Selling Price: " << item->sellingPrice << "\n";
-            cout << "Do you want to buy this item? (\n1.YES\n2.NO): ";
-            int response;
-            cin >> response;
-            if (response == 1 && item->quantity > 0) {
-                item->quantity--;  // Decrement the quantity
-                cout << "Purchase successful! Remaining quantity: " << item->quantity << "\n";
-            } else if (response == 1 && item->quantity <= 0) {
-                cout << "Sorry, this item is out of stock.\n";
+            cout << "Enter the quantity you want to buy: ";
+            int quantityToBuy;
+            cin >> quantityToBuy;
+            if (quantityToBuy <= item->quantity) {
+                item->quantity -= quantityToBuy;  // Decrement the quantity
+                item->soldQuantity += quantityToBuy;  // Increment the sold quantity
+                cout<< "Purchase successful! Remaining quantity: " << item->quantity << "\n";
             } else {
-                cout << "Okay, no problem.\n";
+                cout << "Sorry, we only have " << item->quantity << " items in stock.\n";
             }
         } else {
             // Item not found
@@ -144,18 +144,18 @@ void Sell_item(string catagory, string itemToSell){
 
     else {
         // Key not found in the 
-        couut<<"NO Such Catagory!z"
+        cout<<"NO Such Catagory!";
     }
-}
+ }
 
 
 //function for displaying items
-unordered_map<string, item*> storE;
+unordered_map<string, Item*> storE;
 
 
 void displaY();
 void displaY(string caT);
-void displaY(unordered_map<string, item*> storE);
+void displaY(unordered_map<string, Item*> storE);
 bool searcH(string caT);
 
 
@@ -202,7 +202,7 @@ void displaY(string caT)
     }
 }
 
-void displaY(unordered_map<string, item*> storE)
+void displaY(unordered_map<string, Item*> storE)
 {
     for(const auto& pair : storE)
     {

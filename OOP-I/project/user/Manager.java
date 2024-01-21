@@ -7,9 +7,9 @@ import project.storepackage.Purchase;
 public class Manager extends User{
     private Inventory inventory;
 
-    public Manager(String name, int id)
+    public Manager(String name, String passwd)
     {
-        super(name,id);
+        super(name,passwd);
         inventory = new Inventory();
     }
 

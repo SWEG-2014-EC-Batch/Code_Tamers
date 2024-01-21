@@ -2,11 +2,11 @@ package project.user;
 
 public class User {
     protected String name;
-    protected int id;
+    protected String passwd;
 
-    public User(String name, int id) {
+    public User(String name, String passwd) {
         this.name=name;
-        this.id=id;
+        this.passwd=passwd;
     }
 
     public void login() {

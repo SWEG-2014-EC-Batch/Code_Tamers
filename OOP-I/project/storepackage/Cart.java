@@ -1,13 +1,15 @@
 package project.storepackage;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Cart {
-    private ArrayList<Product> items;
+    public List<Product> items;
 
    
    public Cart(){
         items = new ArrayList<>();
     }
+
    
     //adding product into the cart
     public void addProduct(Product prod) {

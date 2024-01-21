@@ -18,7 +18,8 @@ public class Manager extends User{
     }
 
     public void purchaseProduct(Product product) {
-        Purchase purchase = new Purchase();
+
+        //Purchase purchase = new Purchase(); //due to constructor yumi
         //purchase.buyProduct(product);  
     }
 

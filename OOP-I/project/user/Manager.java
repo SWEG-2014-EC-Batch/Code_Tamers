@@ -14,20 +14,25 @@ public class Manager extends User{
     }
 
     public void viewProduct(Product product) {
-        //view product logic
+        System.out.println("Here are the list of products availavle in the Store: ");
+        for(Product p:inventory.getProducts()) {
+            System.out.println("Name: "+p.getName()+"Price: "+p.getPrice()+"Quantity: "+p.getQuantity());
+        }
     }
 
     public void purchaseProduct(Product product) {
 
-        //Purchase purchase = new Purchase(); //due to constructor yumi
-        //purchase.buyProduct(product);  
+        Purchase purchase = new Purchase(product);
+        double price = purchase.calculate_price(); //Calculate the price of the purchase
+        purchase.payment(); // Process the payment to the supplier
+        purchase.update_stock();  // Update the stock of the product
     }
 
     public void addProduct(Product product) {
-        //inventory.addProduct(product);
+        inventory.add_product(product);
     }
 
     public void removeProduct(Product product) {
-        //inventory.removeProduct(product);
+        inventory.remove_product(product);
     }
 }

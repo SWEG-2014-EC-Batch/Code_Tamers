@@ -30,7 +30,8 @@ public class Sale extends Transaction {
       // calculate the total price of the items in the cart
       double price = 0.0;
       for (Product p : cart.getProducts()) {
-        price += p.getPrice() * p.getQuantity();
+        price += p.getPrice() * p.getAmount();
+        p.setAmount(0);
       }
       return price;
     }
@@ -45,7 +46,7 @@ public class Sale extends Transaction {
     public void update_stock() {
       // reduce the stock of the products in the cart
       for (Product p : cart.getProducts()) {
-        p.setQuantity(p.getQuantity() - 1);
+        p.setQuantity(p.getQuantity() - p.getAmount());
       }
     }
   }

@@ -50,13 +50,13 @@ public class Inventory {
         Sale s = (Sale) t;
         // reduce the stock of the products in the cart
         for (Product p : s.getCart().getProducts()) {
-          p.setQuantity(p.getQuantity() - 1);
+          p.setQuantity(p.getQuantity() - p.getAmount());
         }
       } else if (t instanceof Purchase) {
         // cast the transaction to a Purchase object
         Purchase p = (Purchase) t;
         // increase the stock of the product
-        p.getProduct().setQuantity(p.getProduct().getQuantity() + 1);
+        p.getProduct().setQuantity(p.getProduct().getQuantity() + p.getAmount());
       }
     }
   

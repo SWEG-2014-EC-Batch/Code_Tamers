@@ -4,6 +4,7 @@ public class Product {
     private String name;
     private double price;
     private int quantity;
+    private int amount;
     private String supplier;
 
     public Product(String name, double price) {
@@ -37,6 +38,9 @@ public class Product {
 
     public void setQuantity(int x) {
         quantity = x;
+    }
+    public void setAmount(int x) {
+        amount = x;
     }
 
     public void setSupplier(String s) {

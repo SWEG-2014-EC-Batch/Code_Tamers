@@ -42,6 +42,9 @@ public class Product {
     public void setAmount(int x) {
         amount = x;
     }
+    public void getAmount() {
+        return amount;
+    }
 
     public void setSupplier(String s) {
         supplier=s;

@@ -8,9 +8,9 @@ public class Sale extends Transaction {
     private Customer customer;
     private Cart cart;
   
+    
     // constructor
-    public Sale(int id, String date, double amount, Customer customer, Cart cart) {
-      super(id, date, amount); // call the superclass constructor
+    public Sale(Customer customer, Cart cart) {
       this.customer = customer;
       this.cart = cart;
     }

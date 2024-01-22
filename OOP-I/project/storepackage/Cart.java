@@ -19,6 +19,11 @@ public class Cart {
     //removing from the cart
     public void removeProduct(Product prod) {
         items.remove(prod);
+        prod.setAmount(0);
+    }
+    //to access the products on the cart
+    public void getProducts(){
+        return items;
     }
 
     //checking out what is in the cart

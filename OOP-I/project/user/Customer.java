@@ -3,6 +3,7 @@ package project.user;
 import project.storepackage.Cart;
 import project.storepackage.Product;
 import project.storepackage.Inventory;
+import project.storepackage.Sale;;
 
 public class Customer extends User{
     private Cart cart;
@@ -29,14 +30,10 @@ public class Customer extends User{
     
     //navigate through the list of product in the inventory
     public void viewProducts(Inventory i) {
-        // View product logic
-        /*
-        Inventory view = new Inventory();
-            private List<Product> items = view.getProducts(); 
-            for(Product p:) {
-                
-            } 
-            */
+        System.out.println("Here are the list of products availavle in the Store: ");
+        for(Product p:i.getProducts()) {
+            System.out.println("Name: "+p.getName()+"Price: "+p.getPrice()+"Quantity: "+p.getQuantity());
+        }
     }
 
     public void addToCart(Product product) {

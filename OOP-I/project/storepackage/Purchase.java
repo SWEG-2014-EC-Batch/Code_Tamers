@@ -1,6 +1,5 @@
 package project.storepackage;
 
-import project.user.Manager;
 
 // Purchase class
 public class Purchase extends Transaction {

@@ -22,7 +22,7 @@ public class Cart {
         prod.setAmount(0);
     }
     //to access the products on the cart
-    public void getProducts(){
+    public List<Product> getProducts(){
         return items;
     }
 

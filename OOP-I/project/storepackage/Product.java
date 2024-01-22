@@ -42,7 +42,7 @@ public class Product {
     public void setAmount(int x) {
         amount = x;
     }
-    public void getAmount() {
+    public int getAmount() {
         return amount;
     }
 

@@ -56,7 +56,7 @@ public class Inventory {
         // cast the transaction to a Purchase object
         Purchase p = (Purchase) t;
         // increase the stock of the product
-        p.getProduct().setQuantity(p.getProduct().getQuantity() + p.getAmount());
+        p.getProduct().setQuantity(p.getProduct().getQuantity() + p.getProduct().getAmount());
       }
     }
   

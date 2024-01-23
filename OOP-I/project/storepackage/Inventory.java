@@ -43,22 +43,22 @@ public class Inventory {
       products.remove(p);
     }
   
-    public void update_stock(Transaction t) {
-      // update the stock based on the type of transaction
-      if (t instanceof Sale) {
-        // cast the transaction to a Sale object
-        Sale s = (Sale) t;
-        // reduce the stock of the products in the cart
-        for (Product p : s.getCart().getProducts()) {
-          p.setQuantity(p.getQuantity() - p.getAmount());
-        }
-      } else if (t instanceof Purchase) {
-        // cast the transaction to a Purchase object
-        Purchase p = (Purchase) t;
-        // increase the stock of the product
-        p.getProduct().setQuantity(p.getProduct().getQuantity() + p.getProduct().getAmount());
-      }
-    }
+    // public void update_stock(Transaction t) {
+    //   // update the stock based on the type of transaction
+    //   if (t instanceof Sale) {
+    //     // cast the transaction to a Sale object
+    //     Sale s = (Sale) t;
+    //     // reduce the stock of the products in the cart
+    //     for (Product p : s.getCart().getProducts()) {
+    //       p.setQuantity(p.getQuantity() - p.getAmount());
+    //     }
+    //   } else if (t instanceof Purchase) {
+    //     // cast the transaction to a Purchase object
+    //     Purchase p = (Purchase) t;
+    //     // increase the stock of the product
+    //     p.getProduct().setQuantity(p.getProduct().getQuantity() + p.getProduct().getAmount());
+    //   }
+    // } canceling this method cause update stock is alredy handled in sale and purchase class so we dont need this method
   
     public void record_transaction(Transaction t) {
       // record the transaction in the salesData or purchaseData

@@ -7,8 +7,6 @@ import project.storepackage.Sale;;
 
 public class Customer extends User{
     private Cart cart;
-    private String usrname;
-    private String passwd;
 
     public Customer(String usrname, String passwd) {
         super(usrname,passwd);
@@ -51,7 +49,7 @@ public class Customer extends User{
 
 
     //here is where the sales is done after the 
-    public void checkout(Inventory inventory) {
+    public void buyProduct(Inventory inventory) {
         Sale sale = new Sale(this, cart); // Create a new Sale instance with the current customer and cart
         double totalPrice = sale.calculate_price(); // Calculate the total price of the items in the cart
         sale.payment(); // Process the payment from the customer

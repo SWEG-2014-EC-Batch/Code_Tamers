@@ -146,16 +146,31 @@ footer {
 }
 
 footer h1 {
-    font-size: 70px;
-    font-family: 'Rubik Maps', system-ui;
+    font-size: 50px;
+    font-family: genos;
     letter-spacing: 8px;
     padding-top: 4%;
     padding-bottom: 2%;
 }
 
-footer p {
+/* footer p {
     font-size: 23px;
     color: #9e9898;
+} */
+
+footer .footerDetails {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+footer .footerDetails .address ul{
+    list-style: none;
+}
+
+.address ul li {
+    padding: 10px;
+    font-family: genos;
+    font-size: 18px;
 }
 
 footer .social-media {
@@ -181,6 +196,7 @@ footer hr {
     margin-left: 25%;
 }
 footer label {
+    font-family: 'poor story';
     text-align: center;
     font-size: 23px;
 }

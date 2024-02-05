@@ -208,55 +208,62 @@ footer {
     background: linear-gradient(5deg,#0a3556, #03253f);
     color:#fff;
     width: 100%;
-    margin-top: 7%px;
-    padding: 10px;
+    margin-top: 7%;
     text-align: center;
-}
-
-footer h1 {
-    font-size: 70px;
-    font-family: 'Rubik Maps', system-ui;
+  }
+  
+  footer h1 {
+    font-size: 50px;
+    font-family: genos;
     letter-spacing: 8px;
     padding-top: 4%;
     padding-bottom: 2%;
-}
-
-footer p {
-    font-size: 23px;
-    color: #9e9898;
-}
-
-footer .social-media {
+  }
+  
+  
+  footer .footerDetails {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  footer .footerDetails .address ul{
+    list-style: none;
+  }
+  
+  .address ul li {
+    padding: 10px;
+    font-family: genos;
+    font-size: 18px;
+  }
+  
+  footer .social-media {
     padding: 15px 10px;
-}
-
-.social-media i {
+  }
+  
+  .social-media i {
     margin-left: 2px;
     padding: 8px 10px;
     color: #fff;
     cursor: pointer;
-}
-
-.social-media i:hover {
+  }
+  
+  .social-media i:hover {
     background: #fff;
     color: #0a3556;
     border-radius: 3600px;
-}
-
-footer hr {
+  }
+  
+  footer hr {
     margin: 14px;
     width: 50%;
     margin-left: 25%;
-}
-
-.tel p {
-    font-size: 23;
-}
-footer label {
+  }
+  footer label {
+    font-family: 'poor story';
     text-align: center;
     font-size: 23px;
-}
-
-label span {
+  }
+  
+  label span {
     color: rgb(208, 22, 22);
-}
+  }

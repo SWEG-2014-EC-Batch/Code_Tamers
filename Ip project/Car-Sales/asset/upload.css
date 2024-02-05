@@ -1,0 +1,240 @@
+:root {
+    --dark-mode: #073457;
+}
+
+body {
+    background: var(--dark-mode);
+    color: #fff;
+}
+
+nav {
+    width: 90%;
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 20px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2%;
+}
+nav h2 {
+    color: #fff;
+    font-family: 'Rubik Maps', system-ui; 
+    font-size: 26px;
+    letter-spacing: 8px ;
+    cursor: pointer;
+}
+
+nav ul li{
+    list-style: none;
+    display: inline-block;
+    margin-left: 15px;        
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Rubik Maps', system-ui;
+    font-size: 15px;
+    transform: font-size 0.5s;
+    cursor: pointer;
+}
+
+nav ul li a:hover{
+    font-size: 17px;
+}
+
+.container {
+    width: 80%;
+    margin: 2% 8%;
+    text-align: center;
+}
+
+.container fieldset {
+    border: 2px solid #2a5372;
+    margin-bottom: 2%;
+}
+
+.container fieldset legend {
+    font-family: 'Rubik Maps', system-ui;
+    font-size: 20px;
+
+}
+
+.container label {
+    font-size: 20px;
+    font-family: 'Single Day', cursive;
+    display: block;
+}
+.container input {
+    padding: 10px 4%;
+    margin: 2%;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    background: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: 'Poor Story', system-ui;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+@keyframes glowing {
+    0%   { box-shadow: 0 0 5px rgba(56, 202, 168, 0.467); }
+    50%   { box-shadow: 0 0 20px rgba(56, 202, 168, 0.467); }
+    100%   { box-shadow: 0 0 5px rgba(56, 202, 168, 0.467); }
+}
+
+input:focus {
+    animation: glowing 2s infinite;
+}
+
+input:hover {
+    transform: translateX(10px);
+}
+
+
+.imageChoice {
+    width: 70%;
+    position: relative;
+    text-align: center;
+    margin: 6% 18%;
+    padding-top: 2px;
+    background: #2a5372;
+    box-shadow: 0 0 15 #1176c2;
+}
+input[type="file"] {
+    display: none;
+}
+
+.pict {
+    width: 30%;
+    display: block;
+    background: #2a5372;
+    border: 1px solid #fff;
+    margin: 2% 0 0 38%;
+    position: relative;
+    cursor: pointer;
+}
+
+.pict:hover {
+    color: #2a5372;
+    background: #fff;
+}
+
+#images {
+    width: 90%;
+    border: none;
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+figure {
+    width:36%;
+}
+
+img {
+    width: 100%;
+}
+
+figcaption {
+    text-align: center;
+    font-size: 2.4vmin;
+    margin-top: 0.5vmin;
+}
+
+
+button {
+    border: 2px solid #2a5372;
+    border-radius: 6px;
+    color: #2a5372;
+    background: #fff;
+    font-size: 20px;
+    margin: 6px 8px;
+    padding: 0.5rem 2rem;
+    transition: transform 0.3s, background 0.3s, color 0.3s;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: translateY(10px);
+    background: #2a5372;
+    color: #fff;
+}
+
+footer {
+    background: linear-gradient(5deg,#0a3556, #03253f);
+    color:#fff;
+    width: 100%;
+    margin-top: 7%;
+    text-align: center;
+}
+
+footer h1 {
+    font-size: 50px;
+    font-family: genos;
+    letter-spacing: 8px;
+    padding-top: 4%;
+    padding-bottom: 2%;
+}
+
+/* footer p {
+    font-size: 23px;
+    color: #9e9898;
+} */
+
+footer .footerDetails {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+footer .footerDetails .address ul{
+    list-style: none;
+}
+
+.address ul li {
+    padding: 10px;
+    font-family: genos;
+    font-size: 18px;
+}
+
+footer .social-media {
+    padding: 15px 10px;
+}
+
+.social-media i {
+    margin-left: 2px;
+    padding: 8px 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.social-media i:hover {
+    background: #fff;
+    color: #0a3556;
+    border-radius: 3600px;
+}
+
+footer hr {
+    margin: 14px;
+    width: 50%;
+    margin-left: 25%;
+}
+footer label {
+    font-family: 'poor story';
+    text-align: center;
+    font-size: 23px;
+}
+
+label span {
+    color: rgb(208, 22, 22);
+}

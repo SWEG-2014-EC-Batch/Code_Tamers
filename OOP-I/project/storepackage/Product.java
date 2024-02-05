@@ -6,6 +6,7 @@ public class Product {
     private int quantity;
     private int amount;
     private String supplier;
+    private String category;
 
     public Product(String name, double price) {
         this.name = name;
@@ -28,6 +29,10 @@ public class Product {
         return supplier;
     }
 
+    public String getCategory() {
+        return category;
+    }
+
     public void setName(String newName) {
         name=newName;
     }
@@ -48,6 +53,10 @@ public class Product {
 
     public void setSupplier(String s) {
         supplier=s;
+    }
+
+    public void setCategory(String s) {
+        category=s;
     }
 
 }

@@ -153,10 +153,6 @@ footer h1 {
     padding-bottom: 2%;
 }
 
-/* footer p {
-    font-size: 23px;
-    color: #9e9898;
-} */
 
 footer .footerDetails {
     display: flex;
@@ -205,6 +201,16 @@ label span {
     color: rgb(208, 22, 22);
 }
 
+/*for the mobile responsiveness*/
+.checkbtn {
+    font-size: 30px;
+    display: none;
+    cursor: pointer;
+}
+
+#check {
+    display: none;
+}
 
 @media (max-width:962px) {
     nav{

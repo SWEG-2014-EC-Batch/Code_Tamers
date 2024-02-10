@@ -99,6 +99,8 @@ nav ul li a:hover{
     border-radius: 8px;
     font-family: 'Genos', sans-serif;
     margin-bottom: 3%;
+    border: none;
+    outline: none;
 }
 .content select option{
     font-family: 'Genos', sans-serif;
@@ -107,7 +109,7 @@ nav ul li a:hover{
 .content button {
     margin-top: 14px;
     font-size: 50px;
-    border-radius: 10px;
+    border-radius: 700px;
     background: #ffa500;
     padding-top: 10px;
     padding-bottom: 5px;
@@ -124,10 +126,13 @@ nav ul li a:hover{
 
 .content form fieldset #search-part
 {
-    border: 1px;
     color: #000;
-    font-size: 2rem;
     font-family: 'Genos', sans-serif;
+    padding: 20px 15%;
+    border-radius: 8px;
+    font-size: 20px;
+    border: none;
+    outline: none;
 }
 
 .content form fieldset

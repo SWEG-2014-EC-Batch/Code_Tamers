@@ -23,3 +23,76 @@ function preview() {
         reader.readAsDataURL(i);
     }
 }
+
+//get the form element
+const form = document.getElementById('forM');
+
+//adding event listener to form submission
+form.addEventListener('submit', function(event){
+    event.preventDefault(); //prevent submission
+
+    //validating car info
+    var make = document.getElementById('make').value;
+    var model = document.getElementById('model').value;
+    var year = document.getElementById('year').value;
+    var fuel = document.getElementById('fuel').value;
+    var price = document.getElementById('price').value;
+
+    //validation check
+    if(make.trim() === '')
+    {
+        alert('please Enter the make of the car!');
+        return;
+    }
+    if(model.trim() === '')
+    {
+        alert('please enter the model of the car!');
+        return;
+    }
+    if(year.trim() === '' || (parseInt(year)<=1990 || parseInt(year)>=2024))
+    {
+        alert('please enter the year of the car or even the appropriate one!');
+        return;
+    }
+    if(fuel.trim() === '')
+    {
+        alert('please enter the fuel of the car!');
+        return;
+    }
+    if(isNaN(price) || parseInt(price)<=0)
+    {
+        alert('enter valid price of the car!');
+        return;
+    }
+
+
+    //for the user info
+    var alias = document.getElementById('alias').value;
+    var tg = document.getElementById('tg').value;
+    var phone = document.getElementById('phone').value;
+
+    if(alias.trim()==='')
+    {
+        alert('Enter your name please!');
+        return;
+    }
+    if(tg.trim()==='')
+    {
+        alert("Enter your telegram user name please!");
+        return;
+    }
+    if(phone.trim()==='')
+    {
+        alert("Can you enter your phone please!");
+        return;
+    }
+    if(!(/^\+?\d{10,14}$/.test(phone))){
+        alert('please please please enter your phone in correct format and length!');
+        return;
+    }
+
+    //if all satisfy the condition
+    alert('Form Submitted Successfully!');
+    form.reset();
+    
+});

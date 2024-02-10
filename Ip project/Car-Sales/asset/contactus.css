@@ -8,9 +8,11 @@ body {
     padding: 6%;
 }
 .contact-info {
-    float: left;
+    width: 100%;
+    margin: 0 auto;
+/*     float: left;
     width: 20%;
-    margin-left: 100px;
+    margin-left: 100px; */
 }
 
 .text-with-line {
@@ -56,11 +58,14 @@ body {
   .contact-form {
     /* float: right; */
     background-color: #f5f5f5;
-    padding: 1rem 5rem 1rem 5rem;
+/*     padding: 1rem 5rem 1rem 5rem; */
+    padding: 20px;
+      
     border-radius: 5px;
-    width: 30%;
+    width: 100%;
+/*     width: 30%; */
     margin: 0 auto;
-    margin-right: 140px;
+/*     margin-right: 140px; */
     box-sizing: border-box;
   }
   
@@ -205,4 +210,17 @@ footer label {
 
 label span {
   color: rgb(208, 22, 22);
+}
+
+@media screen and (min-width: 768px) {
+.contact-info {
+    float: left;
+    width: 40%;
+    margin-left: 5%;
+    }
+
+.contact-form {
+    float: right;
+    width: 50%;
+    }
 }

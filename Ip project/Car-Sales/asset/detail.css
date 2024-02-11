@@ -221,7 +221,7 @@ label span {
     }
 }
 
-@media (max-width:950px) {
+@media (max-width:768px) {
     .checkbtn {
         display: inline;
         float: right;

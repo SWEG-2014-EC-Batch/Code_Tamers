@@ -12,6 +12,17 @@ body {
     margin: 0 auto;
 }
 
+nav {
+  width: 90%;
+  top: 0;
+  left: 0;
+  padding: 20px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2%;
+}
+
 nav #h2 {
   color: #131316;
   font-family: 'Rubik Maps', system-ui;
@@ -124,6 +135,8 @@ nav ul li a:hover {
 
 
 footer {
+  display:flex;
+  flex-direction: column;
   background: linear-gradient(5deg,#0a3556, #03253f);
   color:#fff;
   width: 100%;
@@ -237,4 +250,117 @@ label span {
     float: right;
     width: 50%;
     }
+}
+.checkbtn {
+  font-size: 20px;
+  display: none;
+  cursor: pointer;
+}
+
+#check {
+  display: none;
+}
+
+@media (max-width:962px) {
+  nav{
+      padding:0 5px 0
+  }
+  nav #h1{
+      font-size: 16px;
+  }
+}
+
+@media (max-width:900px) {
+  .checkbtn {
+      display: inline;
+      float: right;
+      margin-right: 2%;
+  }
+  nav ul {
+      position: fixed;
+      width: 40%;
+      height: 100vh;
+      top: 45px;
+      right: -100%;
+      border-radius: 10px;
+      text-align: center;
+      padding-top: 2%;
+      background: #131316;
+      opacity: 0.9;
+      transition: all 1s;
+      z-index: 1;
+  }
+  nav ul li {
+      margin: 50px 0;
+      display: block;
+      line-height: 30px;
+  }
+
+  nav ul li a {
+      color: #9e9898;
+      font-size: 16px;
+  }
+  nav ul li a:hover {
+      color: #fff;
+  }
+
+  #check:checked ~ nav ul {
+      right: .5rem; 
+  }
+  
+    /*footer part*/
+footer {
+  margin-top: 2%;
+}
+
+footer h1 {
+  font-size: 40px;
+  padding-top: 4%;
+  padding-bottom: 1%;
+}
+
+footer p {
+  font-size: 18px;
+}
+
+footer .social-media {
+  padding: 10px 8px;
+}
+
+.social-media i {
+  margin-left: 2px;
+  padding: 6px 6px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.social-media i:hover {
+  background: #fff;
+  color: #0a3556;
+  border-radius: 3600px;
+}
+
+footer hr {
+  margin: 14px;
+  width: 50%;
+  margin-left: 25%;
+}
+footer label {
+  text-align: center;
+  font-size: 23px;
+}
+}
+
+
+@media (max-width:495) {    
+  .img-container {
+      width: 100px;
+      height: 200px;
+      margin-left: 12%;
+  }
+
+  .slide .cascade {
+      width: 100px;
+      height: 200px;
+  }
 }

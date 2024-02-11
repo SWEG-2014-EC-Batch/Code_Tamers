@@ -216,8 +216,9 @@ label span {
     nav{
         padding:0 5px 0
     }
-    nav #h1{
+    nav #h2{
         font-size: 16px;
+        margin: 1rem 2rem;
     }
 }
 
@@ -225,18 +226,20 @@ label span {
     .checkbtn {
         display: inline;
         float: right;
-        margin-right: 2%;
+        margin-top: 1rem;
+        margin-right: 2rem;
     }
     nav ul {
         position: fixed;
         width: 40%;
         height: 100vh;
-        top: 80px;
+        top: 40px;
         right: -100%;
         border-radius: 10px;
         text-align: center;
         padding-top: 2%;
-        background: linear-gradient(145deg,#0a3556, #9e9898);
+        background: #131316;
+        opacity: 0.7;
         transition: all 1s;
         z-index: 1;
     }

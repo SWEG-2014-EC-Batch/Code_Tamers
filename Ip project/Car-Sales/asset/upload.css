@@ -278,10 +278,11 @@ label span {
 
 @media (max-width:962px) {
     nav{
-        padding:0 5px 0
+        padding:1rem 5px 0
     }
     nav #h2{
         font-size: 16px;
+        margin: 2rem 2rem;
     }
 }
 
@@ -289,18 +290,19 @@ label span {
     .checkbtn {
         display: inline;
         float: right;
-        margin-right: 2%;
+        margin: 2.5rem 2%;
     }
     nav ul {
         position: fixed;
         width: 40%;
         height: 100vh;
-        top: 80px;
+        top: 70px;
         right: -100%;
         border-radius: 10px;
         text-align: center;
         padding-top: 2%;
-        background: linear-gradient(145deg,#0a3556, #9e9898);
+        background: #22222b;
+        opacity: 0.9;
         transition: all 1s;
         z-index: 1;
     }

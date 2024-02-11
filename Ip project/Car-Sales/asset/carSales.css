@@ -349,12 +349,11 @@ label span {
         width: 80%; /* Adjusted to 80% of the screen width */
         max-width: 400px; /* Added max-width to prevent it from stretching too wide */
         height: 100vh;
-        top: 80px;
         right: -100%;
+        top: 45px;
         border-radius: 10px;
         text-align: center;
-        padding-top: 2%;
-        background: linear-gradient(145deg,#0a3556, #9e9898);
+        background: linear-gradient(145deg,#131316, #403838);
         transition: all 1s;
         z-index: 2;
     }

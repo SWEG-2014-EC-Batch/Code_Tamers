@@ -18,7 +18,7 @@ nav {
     justify-content: space-between;
     margin-top: 2%;
 }
-nav h2 {
+nav #h2 {
     color: #fff;
     font-family: 'Rubik Maps', system-ui;
     font-size: 26px;
@@ -329,4 +329,65 @@ footer label {
 
 label span {
     color: rgb(208, 22, 22);
+}
+
+
+/* for the humburger menu */
+.checkbtn {
+    font-size: 20px;
+    display: none;
+    cursor: pointer;
+    color: #fff;
+}
+
+#check {
+    display: none;
+}
+
+
+@media (max-width:900px) {
+    .checkbtn {
+        display: inline;
+        float: right;
+        margin-right: 3%;
+    }
+    
+    nav{
+        padding:0 5px 0
+    }
+
+    nav #h2 {
+        font-size: 16px;
+        margin-left: 1rem;
+    }
+    nav ul {
+        position: fixed;
+        width: 40%;
+        height: 100vh;
+        top: 80px;
+        right: -100%;
+        border-radius: 10px;
+        text-align: center;
+        padding-top: 2%;
+        background: linear-gradient(145deg,#0a3556, #9e9898);
+        transition: all 1s;
+        z-index: 1;
+    }
+    nav ul li {
+        margin: 50px 0;
+        display: block;
+        line-height: 30px;
+    }
+
+    nav ul li a {
+        color: #fff;
+        font-size: 16px;
+    }
+    nav ul li a:hover {
+        color: #fff;
+    }
+
+    #check:checked ~ nav ul {
+        right: .5rem; 
+    }
 }

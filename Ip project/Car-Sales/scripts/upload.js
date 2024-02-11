@@ -96,3 +96,16 @@ form.addEventListener('submit', function(event){
     form.reset();
     
 });
+
+// animation for the label elements
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+});
+
+const hiddenElmts = document.querySelectorAll('.hidden');
+hiddenElmts.forEach((el) => observer.observe(el));
+

@@ -19,9 +19,15 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
 </head>
+<!-- the bar icon -->
+<input type="checkbox" id="check">
+<label for="check" class="checkbtn">
+    <i class='bx bx-menu'></i>
+</label>
+
 <body>
     <nav>
-        <h2>TAMERS</h2>
+        <label id="h2">TAMERS</label>
         <ul>
             <li><a href="#">HOME</a></li>
             <li><a href="inventory.html">INVENTORY</a></li>
@@ -30,32 +36,36 @@
             <li><a href="#">CONTACT US</a></li>
         </ul>
     </nav>
+    <fieldset>
+        <h1 class="h1"><span class="head">Welcome</span> <span class="typed">To The Upload Page</span></h1>
+    </fieldset>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    
     <div class="container">
-        <form action="#">
-            <fieldset>
-                <legend>Enter Car Information</legend>
-                    <label for="make">Make<input type="text" id="make"></label>
-                    <label for="model">Model<input type="text" id="model"></label>
-                    <label for="year">Year<input type="number" id="year"></label>
-                    <label for="fuel">Fuel<input type="fuel"></label>
-                    <label for="price">Price<input type="number" id="price"></label>
-                    
-                    <div class="imageChoice">
-                        <input type="file" accept="image/png, image/jpeg" id="pic" onchange="preview()" multiple>
-                        <label for="pic" class="pict"><i class='bx bx-upload'></i>&nbsp;Choose Images</label>
-                        <p id="num-of-files">No Files Chosen</p>
-                        <div id="images"></div>
-                    </div>
+        <form id="forM">
+            <fieldset class="blue">
+                <label class="title">Car Info</label>
+                <label for="make" class="hidden">Make<input type="text" id="make"></label>
+                <label for="model" class="hidden">Model<input type="text" id="model"></label>
+                <label for="year" class="hidden">Year<input type="number" id="year"></label>
+                <label for="fuel" class="hidden">Fuel<input type="fuel" id="fuel"></label>
+                <label for="price" class="hidden">Price<input type="number" id="price"></label>
+                
+                <div class="imageChoice">
+                    <input type="file" accept="image/png, image/jpeg" id="pic" onchange="preview()" multiple>
+                    <label for="pic" class="pict"><i class='bx bx-upload'></i>&nbsp;Choose Images</label>
+                    <p id="num-of-files">No Files Chosen</p>
+                    <div id="images"></div>
+                </div>
+            </fieldset>
+            <fieldset class="pink">
+                <label class="title">User Info</label>
+                <label for="alias" class="hidden"><i class='bx bxs-user bx-md'></i><input type="text" id="alias" placeholder="Name"></label>
+                <label for="tg" class="hidden"><i class='bx bxl-telegram bx-md'></i><input type="text" id="tg" placeholder="Telegram username"></label>
+                <label for="phone" class="hidden"><i class='bx bxs-phone bx-md'></i><input type="tel" id="phone" placeholder="phone-number"></label>
+                <button type="submit">Submit</button><button type="reset">Cancel</button>
             </fieldset>
 
-            <fieldset>
-                <legend>Your Information</legend>
-                <label for="alias"><i class='bx bxs-user bx-md'></i><input type="text" id="alias" placeholder="Name"></label>
-                <label for="tg"><i class='bx bxl-telegram bx-md'></i><input type="text" id="tg" placeholder="Telegram username"></label>
-                <label for="phone"><i class='bx bxs-phone bx-md'></i><input type="tel" id="phone" placeholder="phone-number"></label>
-            </fieldset>
-
-            <button type="submit">Submit</button><button type="reset">Cancel</button>
         </form>
 
     </div>
@@ -89,5 +99,13 @@
     </footer>
 
     <script src="/Ip project/Car-Sales/scripts/upload.js"></script>
+    <script>
+        var types = new Typed(".typed", {
+            strings: ["Scroll Down And Fill The Form", "Fill All The Info"],
+            typeSpeed: 150, 
+            backSpeed: 150,
+            loop: true
+    })
+    </script>
 </body>
 </html>

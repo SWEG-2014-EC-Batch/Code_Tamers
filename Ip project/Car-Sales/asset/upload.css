@@ -1,5 +1,5 @@
 :root {
-    --dark-mode: #073457;
+    --dark-mode: #131316;
 }
 
 body {
@@ -18,7 +18,7 @@ nav {
     justify-content: space-between;
     margin-top: 2%;
 }
-nav h2 {
+nav #h2 {
     color: #fff;
     font-family: 'Rubik Maps', system-ui; 
     font-size: 26px;
@@ -45,21 +45,39 @@ nav ul li a:hover{
     font-size: 17px;
 }
 
+h1 {
+    font-size: 70px;
+    text-align: center;
+    font-family: 'poor story';
+    margin-top: 6rem;
+    color: rgb(161, 192, 192);
+}
+fieldset .h1 {
+    height: 100vh; 
+}
+
+h1 .head{
+    font-size: 120px;
+    display: block;
+    color: #0a3556;
+}
+
 .container {
     width: 80%;
     margin: 2% 8%;
     text-align: center;
 }
 
-.container fieldset {
-    border: 2px solid #2a5372;
+ fieldset {
+    border: 2px solid var(--dark-mode);
+    
     margin-bottom: 4%;
+    height:max-content;
 }
 
-.container fieldset legend {
+.container fieldset .title {
     font-family: 'Rubik Maps', system-ui;
     font-size: 20px;
-
 }
 
 .container label {
@@ -94,9 +112,6 @@ input:focus {
     animation: glowing 2s infinite;
 }
 
-input:hover {
-    transform: translateX(10px);
-}
 
 
 .imageChoice {
@@ -187,10 +202,6 @@ footer h1 {
     padding-bottom: 2%;
 }
 
-/* footer p {
-    font-size: 23px;
-    color: #9e9898;
-} */
 
 footer .footerDetails {
     display: flex;
@@ -237,4 +248,119 @@ footer label {
 
 label span {
     color: rgb(208, 22, 22);
+}
+
+
+.hidden {
+    opacity:0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 2s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+
+/*for the mobile responsiveness*/
+.checkbtn {
+    font-size: 20px;
+    display: none;
+    cursor: pointer;
+}
+
+#check {
+    display: none;
+}
+
+@media (max-width:962px) {
+    nav{
+        padding:0 5px 0
+    }
+    nav #h2{
+        font-size: 16px;
+    }
+}
+
+@media (max-width:900px) {
+    .checkbtn {
+        display: inline;
+        float: right;
+        margin-right: 2%;
+    }
+    nav ul {
+        position: fixed;
+        width: 40%;
+        height: 100vh;
+        top: 80px;
+        right: -100%;
+        border-radius: 10px;
+        text-align: center;
+        padding-top: 2%;
+        background: linear-gradient(145deg,#0a3556, #9e9898);
+        transition: all 1s;
+        z-index: 1;
+    }
+    nav ul li {
+        margin: 50px 0;
+        display: block;
+        line-height: 30px;
+    }
+
+    nav ul li a {
+        color: #9e9898;
+        font-size: 16px;
+    }
+    nav ul li a:hover {
+        color: #fff;
+    }
+
+    #check:checked ~ nav ul {
+        right: .5rem; 
+    }
+
+    /*footer part*/
+    footer {
+        margin-top: 2%;
+    }
+    
+    footer h1 {
+        font-size: 40px;
+        padding-top: 4%;
+        padding-bottom: 1%;
+    }
+    
+    footer p {
+        font-size: 18px;
+    }
+    
+    footer .social-media {
+        padding: 10px 8px;
+    }
+    
+    .social-media i {
+        margin-left: 2px;
+        padding: 6px 6px;
+        color: #fff;
+        cursor: pointer;
+    }
+    
+    .social-media i:hover {
+        background: #fff;
+        color: #0a3556;
+        border-radius: 3600px;
+    }
+    
+    footer hr {
+        margin: 14px;
+        width: 50%;
+        margin-left: 25%;
+    }
+    footer label {
+        text-align: center;
+        font-size: 23px;
+    }
 }

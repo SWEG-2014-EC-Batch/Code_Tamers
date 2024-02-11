@@ -45,6 +45,19 @@ nav ul li a:hover{
     font-size: 17px;
 }
 
+body {
+    overflow-x: hidden;
+    background-color: #03253f;
+}
+
+.FEATURED{
+    margin: 5px 10%;
+    font-family: 'Rubik Maps', system-ui;
+    font-size: 37px;
+    color: var(--dark-mode);
+    margin-bottom:15px;
+}
+
 .content {
     text-align: center;
     position: relative;
@@ -110,58 +123,6 @@ nav ul li a:hover{
     padding-bottom: 5px;
 }
 
-
-nav {
-    width: 90%;
-    position: relative;
-    top: 0;
-    left: 0;
-    padding: 20px 8%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 2%;
-}
-nav h2 {
-    color: #fff;
-    font-family: 'Rubik Maps', system-ui;
-    font-size: 26px;
-    letter-spacing: 8px ;
-    cursor: pointer;
-}
-
-nav ul li{
-    list-style: none;
-    display: inline-block;
-    margin-left: 15px;        
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-family: 'Rubik Maps', system-ui;
-    font-size: 15px;
-    transform: font-size 0.5s;
-    cursor: pointer;
-}
-
-nav ul li a:hover{
-    font-size: 17px;
-}
-
-body {
-    overflow-x: hidden;
-    background-color: #03253f;
-}
-
-.FEATURED{
-    margin: 5px 10%;
-    font-family: 'Rubik Maps', system-ui;
-    font-size: 37px;
-    color: var(--dark-mode);
-    margin-bottom:15px;
-}
-
 .car-list {
     width: 100%;
     display: flex;
@@ -170,6 +131,89 @@ body {
     margin: 2% 8%;
 }
 
+
+@media only screen and (max-width: 768px)
+{
+    .content select {
+        min-width: auto;
+        padding: 20px 2%;
+        color: #fff;
+        background: #12232f;
+        width: 90%;
+        font-size: 20px;
+        border-radius: 8px;
+        border-color: #03253f;
+        font-family: 'Genos', sans-serif;
+        margin-bottom: 2.5rem;
+    }
+
+    .content form {
+        min-width: auto;
+        width: 90%;
+        padding: 20px 2%;
+        color: #fff;
+        font-size: 16px;
+        font-family: 'Genos', sans-serif;
+        margin-bottom: 2.5rem;
+    }
+    .content form fieldset
+    {
+        border: 0px;
+    }
+    
+    .content form fieldset .search-part
+    {
+        background-color: #12232f;
+        border-color: #fff;
+        border: 1px;
+        padding-left: 10%;
+        color: #fff;
+        font-size: 2rem;
+        font-family: 'Genos', sans-serif;
+    
+    }
+    .content form fieldset label
+    {
+        background-color: #12232f;
+        font-family: 'Genos', sans-serif;
+    
+    }
+    .content select option{
+        font-family: 'Genos', sans-serif;
+        color: #fff;
+    }
+
+    .car-list {
+        margin: 2% 0;
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .car-content {
+        width: calc(90%-30px);
+        background: var(--dark-mode);
+        color: #fff;
+        overflow: hidden;
+        border-radius: 14px;
+        margin: 10px auto;
+        text-align: center;
+        cursor: pointer;
+        transition: box-shadow 0.5s;  
+        box-sizing: border-box;
+    }
+
+    footer h1 {
+        font-size: 40px;
+    }
+
+    footer label {
+        font-size: 20px;
+        font-family: 'poor story';
+        text-align: center;
+    }
+    
+}
 .car-content {
     background: var(--dark-mode);
     color: #fff;
@@ -192,16 +236,16 @@ body {
 }
 
 .car-content img {
-     width: 100%;
-     height: 50%;
-     object-fit: cover;
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
 }
 
 .car-content p {
     padding: 15px 23px;
     font-size: 25px;
 }
- 
+
 .car-content label{
     font-size: 26px;
     font-weight: bold;
@@ -229,60 +273,60 @@ footer {
     width: 100%;
     margin-top: 7%;
     text-align: center;
-  }
-  
-  footer h1 {
+}
+
+footer h1 {
     font-size: 50px;
     font-family: genos;
     letter-spacing: 8px;
     padding-top: 4%;
     padding-bottom: 2%;
-  }
-  
-  
-  footer .footerDetails {
+}
+
+footer .footerDetails {
     display: flex;
     justify-content: space-evenly;
-  }
-  
-  footer .footerDetails .address ul{
+}
+
+footer .footerDetails .address ul{
     list-style: none;
-  }
-  
-  .address ul li {
+}
+
+.address ul li {
     padding: 10px;
     font-family: genos;
     font-size: 18px;
-  }
-  
-  footer .social-media {
+}
+
+footer .social-media {
     padding: 15px 10px;
-  }
-  
-  .social-media i {
+}
+
+.social-media i {
     margin-left: 2px;
     padding: 8px 10px;
     color: #fff;
     cursor: pointer;
-  }
-  
-  .social-media i:hover {
+}
+
+.social-media i:hover {
     background: #fff;
     color: #0a3556;
     border-radius: 3600px;
-  }
-  
-  footer hr {
+}
+
+footer hr {
     margin: 14px;
     width: 50%;
     margin-left: 25%;
-  }
-  footer label {
+}
+
+footer label {
     font-family: 'poor story';
     text-align: center;
     font-size: 23px;
-  }
-  
-  label span {
+}
+
+label span {
     color: rgb(208, 22, 22);
-  }
+}

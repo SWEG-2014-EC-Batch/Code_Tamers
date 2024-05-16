@@ -50,6 +50,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             save the username to the session */
                             session_start();
                             $_SESSION['username'] = $username;
+                            $_SESSION['timeout'] = time();
                             header("location: welcome.php");
                         } else{
                             // Display an error message if password is not valid

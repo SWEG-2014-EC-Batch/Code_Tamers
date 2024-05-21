@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.php';
+require_once './config.php';
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -51,15 +51,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             session_start();
                             $_SESSION['username'] = $username;
                             $_SESSION['timeout'] = time();
-                            header("location: welcome.php");
+                            header("location: ./welcome.php");
                         } else{
                             // Display an error message if password is not valid
-                            $password_err = 'The password you entered was not valid.';
+                            $password_err = 'Wrong Password or Username.';
+                            header("location: ../frontend/login2.php?username_err=$password_err");
+                            
                         }
                     }
                 } else{
                     // Display an error message if username doesn't exist
-                    $username_err = 'No account found with that username.';
+                    $username_err = 'Wrong Password or Username.';
+                    header("location:../frontend/login2.php?username_err=$username_err");
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";

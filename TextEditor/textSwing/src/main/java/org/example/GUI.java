@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class GUI extends JFrame implements ActionListener {
     JTextArea textArea;
-    Font defaultFont=new Font("Comic Sans MS",Font.PLAIN,12);
+    Font defaultFont=new Font("Comic Sans MS",Font.PLAIN,13);
     boolean wWarp=false;
     JScrollPane scrollPane;
     JMenuBar menuBar;

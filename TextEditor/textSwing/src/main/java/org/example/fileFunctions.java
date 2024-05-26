@@ -15,6 +15,8 @@ public class fileFunctions {
     {
         gui.textArea.setText("");
         gui.setTitle("New");
+        fileName=null;
+        filePath=null;
     }
     public void openFile()
     {
@@ -31,7 +33,7 @@ public class fileFunctions {
         try{
             BufferedReader br=new BufferedReader(new FileReader(filePath+fileName));
             gui.textArea.setText("");
-            String line=null;
+            String line;
             while((line = br.readLine())!=null)
             {
                 gui.textArea.append(line+"\n");
@@ -39,10 +41,53 @@ public class fileFunctions {
             br.close();
         }catch (Exception e)
         {
-            e.printStackTrace();
             System.out.println("The file is not opened");
         }
     }
+    public void save()
+    {
+        if(fileName==null)
+        {
+            saveAs();
+        }
+        else{
+            try{
+                FileWriter fw=new FileWriter(filePath+fileName);
+                gui.setTitle(fileName);
+                fw.write(gui.textArea.getText());
+                fw.close();
+            }
+            catch (Exception e)
+            {
+                System.out.println("File failed to save");
+            }
+        }
+    }
+    public void saveAs()
+    {
+        FileDialog fd=new FileDialog(gui,"SaveAS",FileDialog.SAVE);
+        fd.setVisible(true);
 
+        if(fd.getFile()!=null)
+        {
+            fileName=fd.getFile();
+            filePath=fd.getDirectory();
+            gui.setTitle(fileName);
+        }
+        try{
+            FileWriter fw=new FileWriter(filePath+fileName);
+            fw.write(gui.textArea.getText());
+            fw.close();
+        }
+        catch (Exception e)
+        {
+            System.out.println("File failed to save");
+        }
+    }
+    public void close()
+    {
+
+        System.exit(0);
+    }
 
 }

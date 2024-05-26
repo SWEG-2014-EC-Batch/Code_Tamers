@@ -42,8 +42,16 @@ public class GUI extends JFrame implements ActionListener {
         iOpen.setActionCommand("Open");
 
         iSave=new JMenuItem("Save");
+        iSave.addActionListener(this);
+        iSave.setActionCommand("Save");
+
         iSaveAs=new JMenuItem("Save as");
+        iSaveAs.addActionListener(this);
+        iSaveAs.setActionCommand("SaveAs");
+
         iClose=new JMenuItem("Close");
+        iClose.addActionListener(this);
+        iClose.setActionCommand("Close");
 
         iUndo=new JMenuItem("Undo");
         iRedo=new JMenuItem("Redo");
@@ -75,6 +83,21 @@ public class GUI extends JFrame implements ActionListener {
             case "Open":
             {
                 file.openFile();
+                break;
+            }
+            case "SaveAs":
+            {
+                file.saveAs();
+                break;
+            }
+            case "Save":
+            {
+                file.save();
+                break;
+            }
+            case "Close":
+            {
+                file.close();
                 break;
             }
         }

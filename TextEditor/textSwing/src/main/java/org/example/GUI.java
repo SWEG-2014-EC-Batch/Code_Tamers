@@ -25,6 +25,7 @@ public class GUI extends JFrame implements ActionListener {
     dbManager db;
     Connection conn;
 
+    //Main constructor used in the GUI class
     public GUI() {
         super("NotePad ");
         db = new dbManager(); // Initialize the dbManager instance here
@@ -69,6 +70,7 @@ public class GUI extends JFrame implements ActionListener {
         file.populateRecent();
     }
 
+    //A method that creates submenus
     void createSubMenu() {
         iNew = new JMenuItem("New");
         iNew.addActionListener(this);
@@ -161,21 +163,21 @@ public class GUI extends JFrame implements ActionListener {
         fontSize.get(1).setActionCommand("Size:12");
         fontSize.get(2).addActionListener(this);
         fontSize.get(2).setActionCommand("Size:16");
-
     }
 
+    //Add a list of fonts to the font submenu
     void addFont() {
         fonts.add(new JMenuItem("Times New Roman"));
         fonts.add(new JMenuItem("Arial"));
         fonts.add(new JMenuItem("Comics San"));
     }
 
+    //Add a list of font size to the font submenu
     void addFontSize() {
         fontSize.add(new JMenuItem("Font Size:8"));
         fontSize.add(new JMenuItem("Font Size:12"));
         fontSize.add(new JMenuItem("Font Size:16"));
     }
-
 
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
@@ -188,26 +190,21 @@ public class GUI extends JFrame implements ActionListener {
         }
         else {
             switch (command) {
-                case "New": {
+                case "New":
                     file.newFile();
                     break;
-                }
-                case "Open": {
+                case "Open":
                     file.openFile();
                     break;
-                }
-                case "SaveAs": {
+                case "SaveAs":
                     file.saveAs();
                     break;
-                }
-                case "Save": {
+                case "Save":
                     file.save();
                     break;
-                }
-                case "Close": {
+                case "Close":
                     file.close();
                     break;
-                }
                 case "Undo":
                     edit.undo();
                     break;
@@ -217,17 +214,12 @@ public class GUI extends JFrame implements ActionListener {
                 case "ClearRecent":
                     file.clearRecent();
                     break;
-                case "WordWarp": {
+                case "WordWarp":
                     format.wordWarp();
                     break;
-                }
                 case "Recent":
                     file.populateRecent();
                     break;
-                case "recentFiles":
-                {
-
-                }
                 case "Arial":
                     format.setFont("Arial");
                     break;

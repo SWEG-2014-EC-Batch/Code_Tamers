@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+//The methods that the file menu items use
 public class fileFunctions {
     GUI gui;
     dbManager db;

@@ -1,7 +1,7 @@
 package org.example;
 import java.sql.*;
 
-
+//The database connection manager class
 public class dbManager
 {
     private Connection conn;

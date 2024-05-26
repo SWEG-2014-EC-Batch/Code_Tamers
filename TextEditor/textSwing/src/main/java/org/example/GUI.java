@@ -1,5 +1,6 @@
 package org.example;
 import javax.swing.*;
+import javax.swing.undo.UndoManager;
 import java.util.Vector;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,11 +16,15 @@ public class GUI extends JFrame implements ActionListener {
     Vector<JMenuItem>fontSize=new Vector<>();
     fileFunctions file=new fileFunctions(this);
     formatFunction format=new formatFunction(this);
-
+    editFunction edit=new editFunction(this);
+    UndoManager um=new UndoManager();
     public GUI()
     {
         super("NotePad ");
         textArea=new JTextArea();
+        textArea.getDocument().addUndoableEditListener(
+                undoableEditEvent -> um.addEdit(undoableEditEvent.getEdit())
+        );
         scrollPane=new JScrollPane(textArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
 
@@ -155,6 +160,12 @@ public class GUI extends JFrame implements ActionListener {
                 file.close();
                 break;
             }
+            case "Undo":
+                edit.undo();
+                break;
+            case "Redo":
+                edit.redo();
+                break;
             case "WordWarp":
             {
                 format.wordWarp();

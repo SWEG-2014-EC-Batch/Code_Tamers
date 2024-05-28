@@ -7,7 +7,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 $apikey = '47b1fb4a';
-$servername = "db";
+$servername = "movie_db";
 $username = "root";
 $password = "1234dbq";
 $dbname = "docker_db";

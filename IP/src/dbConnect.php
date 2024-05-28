@@ -1,6 +1,6 @@
 <?php
     class Database {
-        private $host = "db";
+        private $host = "movie_db";
         private $db_name = "docker_db";
         private $username = "root";
         private $password = "1234dbq";

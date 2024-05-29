@@ -1,9 +1,9 @@
 <?php
     class Database {
         private $host = "movie_db";
-        private $db_name = "docker_db";
+        private $db_name = "movieDb";
         private $username = "root";
-        private $password = "1234dbq";
+        private $password = "1234";
         private static $instance = null;
         private $conn;
     

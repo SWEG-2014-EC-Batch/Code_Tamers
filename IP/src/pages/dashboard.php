@@ -9,8 +9,8 @@ if (!isset($_SESSION['username'])) {
 $apikey = '47b1fb4a';
 $servername = "movie_db";
 $username = "root";
-$password = "1234dbq";
-$dbname = "docker_db";
+$password = "1234";
+$dbname = "movieDb";
 $user = $_SESSION['username'];
 $movies = [];
 

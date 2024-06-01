@@ -6,6 +6,7 @@
   $conx = $database->getConnection();
 
   session_start();  
+  $display_error = False;
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {    
     $input_username = $_POST['username'];
@@ -25,6 +26,7 @@
       exit();
     } else {
       $error_message = "Invalid usr or passwd input!";
+      $display_error = True;
     }
     $conx = null;
   }
@@ -58,11 +60,16 @@
         </ul>
     </nav>
 
-    <?php if(isset($error_message)) { echo "<p>$error_message</p>"; } ?>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       <div class = "login-container">
           <div class="login-info">
           <h1>Login</h1>
+          <?php if($display_error) : ?>
+            <div class="error-content">
+              <?php if(isset($error_message)) { echo "<p>$error_message</p>"; } ?>              
+            </div>
+          <?php endif; ?> 
+          
           <div class="form__group field">
             <input
               type="text"

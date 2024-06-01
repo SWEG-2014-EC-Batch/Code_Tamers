@@ -7,7 +7,13 @@
     justify-content: space-between;
     width: 60%;
   }
-  
+ .error-content {
+    width: 20vw;
+    padding: 1rem;
+    background: #a61a44;
+    color: #fff;
+    border-radius: 1rem;
+  }
   .login-container h1 {
     font-family: "Acme", sans-serif;
     color: #260331;

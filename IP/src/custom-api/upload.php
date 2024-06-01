@@ -1,60 +1,15 @@
 <?php
     require '../dbConnect.php';
 
-    
     $database = Database::getInstance();
     $conn = $database->getConnection();
-    
+
     session_start();
 
-    
     if (!isset($_SESSION['admin_name'])) {
         header("Location: ../pages/admin.php");
         exit();
-    }
-    
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (!isset($_FILES['video']) || !isset($_POST['title']) || !isset($_POST['year'])) {
-            echo json_encode(['response' => 'False', 'error' => 'Missing required fields']);
-            exit();
-        }
-
-        $title = $_POST['title'];
-        $year = $_POST['year'];
-        $poster = isset($_POST['poster']) ? $_POST['poster'] : null;
-
-        $target_dir = "uploads/";
-        if (!is_dir($target_dir)) {
-            mkdir($target_dir, 0777, true);
-        }
-        $target_file = $target_dir . basename($_FILES["video"]["name"]);
-        $videoFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        // Check if file is a valid video format
-        $valid_extensions = array("mp4", "avi", "mov", "mkv");
-        if (!in_array($videoFileType, $valid_extensions)) {
-            echo json_encode(['response' => 'False', 'error' => 'Invalid video format']);
-            exit();
-        }
-
-        // Upload file
-        if (move_uploaded_file($_FILES["video"]["tmp_name"], $target_file)) {
-            // Insert movie metadata into the database
-            $stmt = $conn->prepare("INSERT INTO movies (title, year, poster, video_path) VALUES (:title, :year, :poster, :video_path)");
-            $stmt->bindParam(':title', $title);
-            $stmt->bindParam(':year', $year);
-            $stmt->bindParam(':poster', $poster);
-            $stmt->bindParam(':video_path', $target_file);
-
-            if ($stmt->execute()) {
-                echo json_encode(['response' => 'True', 'message' => 'Movie uploaded successfully']);
-            } else {
-                echo json_encode(['response' => 'False', 'error' => 'Failed to save movie metadata']);
-            }
-        } else {
-            echo json_encode(['response' => 'False', 'error' => 'Failed to upload video']);
-        }
-    }
+    }           
 ?>
 
 <!DOCTYPE html>
@@ -66,6 +21,7 @@
     
     <link rel="stylesheet" href="../public/css/style.css">
     <link rel="stylesheet" href="../public/css/dashboard.css">
+    <link rel="stylesheet" href="../public/css/upload.css">
 
     <!-- google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,17 +31,6 @@
 
     <!-- boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
-    <!-- the script for confirming the removal of movie -->
-    <script>
-        function confirmRemoval(movieId) {
-            var confirmation = confirm("Are you sure you want to remove this movie?");
-            if (!confirmation) {
-                // If user cancels, prevent form submission
-                event.preventDefault(); // Prevent default form submission
-            }
-        }   
-    </script>
 </head>
 <body>
     <nav>
@@ -103,13 +48,64 @@
 
     <div class="content">
         <h1>Upload Movie</h1>
-        <form action="<p><?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="error-content">
+            <?php
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    $errors = array();
+                    $title = $_POST['title'];
+                    $year = $_POST['year'];
+                    $poster = $_POST['poster'];
+                    $file_name = $_FILES['video']['name'];
+                    $file_size = $_FILES['video']['size'];
+                    $file_tmp = $_FILES['video']['tmp_name'];
+                    $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+
+                    $extensions = array("mp4", "avi", "mov", "mpeg");
+
+                    if (!in_array($file_ext, $extensions)) {
+                        $errors[] = "Extension not allowed, please choose a MP4, AVI, MOV, or MPEG file.";
+                    }
+                    
+                    if ($file_size > 209715200) { // 200MB limit
+                        $errors[] = 'File size must be less than 200 MB';
+                    }
+                    
+                    if (empty($errors)) {
+                        $upload_directory = 'uploads/';
+                        if (!file_exists($upload_directory)) {
+                            mkdir($upload_directory, 0777, true);
+                        }
+                        $file_path = $upload_directory . $file_name;
+                        if (move_uploaded_file($file_tmp, $file_path)) {
+                            $stmt = $conn->prepare("INSERT INTO movies (title, year, poster, video_path) VALUES (?, ?, ?, ?)");
+                            
+                            // Execute the statement with the file information
+                            if ($stmt->execute([$title, $year, $poster, $file_path])) {
+                                echo "The file ". htmlspecialchars(basename($file_name)). " has been uploaded.";
+                            } else {
+                                echo "Error: Could not execute the query.";
+                                print_r($stmt->errorInfo());
+                            }
+                        } else {
+                            echo "Failed to move the uploaded file.";
+                        }
+                    } else {
+                        foreach ($errors as $error) {
+                            echo $error . "<br>";
+                        }
+                    }
+                }
+            ?>
+
+        </div>
+
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" required><br><br>
             
             <label for="year">Year:</label>
             <input type="text" id="year" name="year" required><br><br>
-            
+
             <label for="poster">Poster URL:</label>
             <input type="text" id="poster" name="poster"><br><br>
             
@@ -119,7 +115,6 @@
             <button type="submit">Upload</button>
         </form>
     </div>
-
 
     <footer>
         <div class="footer-container">
@@ -140,3 +135,4 @@
     </footer>
 </body>
 </html>
+

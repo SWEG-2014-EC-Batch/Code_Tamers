@@ -6,31 +6,15 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
-$apikey = '47b1fb4a';
-$servername = "movie_db";
-$username = "root";
+$servername = "localhost";
+$username = "END";
 $password = "1234";
 $dbname = "movieDb";
 $user = $_SESSION['username'];
 $movies = [];
 
-// Handle search form submission
-if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['search_query'])) {
-    $search_query = urlencode($_GET['search_query']);
-    $api_url = "http://www.omdbapi.com/?s={$search_query}&apikey={$apikey}";
-
-    $response = file_get_contents($api_url);
-    $data = json_decode($response, true);
-
-    if ($data['Response'] === 'True') {
-        $movies = $data['Search'];
-    } else {
-        $error_message = $data['Error'];
-    }
-}
-
 // Handle remove from watched list form submission
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove']) ) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove'])) {
     $movie_id = $_POST['movie_id'];
 
     try {
@@ -42,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove']) ) {
         $stmt->bindParam(':username', $user);
         $stmt->bindParam(':movie_id', $movie_id);
         $stmt->execute();
-    } catch(PDOException $e) {
+    } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
 
@@ -56,7 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['remove']) ) {
 // Handle add to watched list form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['movie_id']) && isset($_POST['movie_title']) && !isset($_POST['remove'])) {
     $movie_id = $_POST['movie_id'];
-    $movie_title = $_POST['movie_title'];
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -67,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['movie_id']) && isset($
         $stmt->bindParam(':username', $user);
         $stmt->bindParam(':movie_id', $movie_id);
         $stmt->execute();
-    } catch(PDOException $e) {
+    } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }
 
@@ -84,11 +67,13 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $conn->prepare("SELECT movie_id, watched_date FROM user_movie WHERE username = :username");
+    $stmt = $conn->prepare("SELECT movies.id, movies.title, movies.year, movies.poster FROM user_movie 
+                            JOIN movies ON user_movie.movie_id = movies.id 
+                            WHERE user_movie.username = :username");
     $stmt->bindParam(':username', $user);
     $stmt->execute();
     $watched_movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch(PDOException $e) {
+} catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
 
@@ -123,16 +108,49 @@ $conn = null;
                 event.preventDefault(); // Prevent default form submission
             }
         }
+
+        // Function to search movies via AJAX
+        function searchMovies() {
+            var searchQuery = document.getElementById('search_query').value;
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '../custom-api/searchMovies.php?query=' + searchQuery, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    var searchResults = document.getElementById('search-results');
+                    searchResults.innerHTML = '';
+                    if (response.movies.length > 0) {
+                        response.movies.forEach(function (movie) {
+                            var movieItem = `
+                            <a href="movies.php?id=${movie.id}">
+                                <li>
+                                    ${movie.poster ? `<img src="${movie.poster}" alt="${movie.title}" style="width: 80px; height: auto;">` : ''}
+                                    <p>${movie.title} (${movie.year})</p>
+                                    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" style="display:inline;">
+                                        <input type="hidden" name="movie_id" value="${movie.id}">
+                                        <input type="hidden" name="movie_title" value="${movie.title}">
+                                        <button type="submit">Add to Watched List</button>
+                                    </form>
+                                </li>
+                            </a>
+                                `;
+                            searchResults.innerHTML += movieItem;
+                        });
+                    } else {
+                        searchResults.innerHTML = '<p>No movies found</p>';
+                    }
+                }
+            };
+            xhr.send();
+        }
     </script>
 </head>
 <body>
     <nav>
-        <a href="./index.php"><h1>MyMovieList</h1></a>
+        <a href="/index.php"><h1>MyMovieList</h1></a>
         <div class="search-bar">
-            <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-                <input type="text" name="search_query" placeholder="Add New Movie" required>
-                <button type="submit">Search</button>
-            </form>
+            <input type="text" id="search_query" name="search_query" placeholder="Add New Movie" required>
+            <button type="button" onclick="searchMovies()">Search</button>
         </div>
         
         <input type="checkbox" id="toggle-popup" class="toggle-popup">
@@ -151,66 +169,39 @@ $conn = null;
             <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?></h1>
         </div>
         
-        <!-- if we are searching for movie -->
         <div class="search-content">
-            <?php if (isset($error_message)) : ?>
-                <p><?php echo htmlspecialchars($error_message); ?></p>
-            <?php endif; ?>
-        
-            <?php if (!empty($movies)) : ?>
-                <h2>Search Results</h2>
-                <ul>
-                    <?php foreach ($movies as $movie) : ?>
-                        <li>
-                            <?php if (!empty($movie['Poster']) && $movie['Poster'] != 'N/A') : ?>
-                                <img src="<?php echo htmlspecialchars($movie['Poster']); ?>" alt="<?php echo htmlspecialchars($movie['Title']); ?>" style="width: 80px; height: auto;">
-                            <?php endif; ?>
-    
-                            <p><?php echo htmlspecialchars($movie['Title']); ?> (<?php echo htmlspecialchars($movie['Year']); ?>)</p>
-                            
-                            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" style="display:inline;">
-                                <input type="hidden" name="movie_id" value="<?php echo htmlspecialchars($movie['imdbID']); ?>">
-                                <input type="hidden" name="movie_title" value="<?php echo htmlspecialchars($movie['Title']); ?>">
-                                <button type="submit">Add to Watched List</button>
-                            </form>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-            <?php endif; ?>
+            <h2>Search Results</h2>
+            <ul id="search-results">
+                <!-- Search results will be populated here via AJAX -->
+            </ul>
         </div>
     
         <div class="watched-content">
             <h2>Movies You Have Watched</h2>
             <ul>
-                <?php foreach ($watched_movies as $movie) : 
-                    // Fetch movie details from OMDb API using movie_id
-                    $movie_id = $movie['movie_id'];
-                    $api_url = "http://www.omdbapi.com/?i={$movie_id}&apikey={$apikey}";
-                    $response = file_get_contents($api_url);
-                    $movie_details = json_decode($response, true);
-                ?>
-                    <li>
-                        <?php if (!empty($movie_details['Poster']) && $movie_details['Poster'] != 'N/A') : ?>
-                            <img src="<?php echo htmlspecialchars($movie_details['Poster']); ?>" alt="<?php echo htmlspecialchars($movie_details['Title']); ?>" style="width: 50px; height: auto;">
-                        <?php endif; ?>
-    
-                        <p>
-                            <?php echo htmlspecialchars($movie_details['Title'])?>
-                        </p>
+                <?php foreach ($watched_movies as $movie) : ?>
+                    <a href="movies.php?id=<?php echo $movie["id"]?>">
+                        <li>
+                            <?php if (!empty($movie['poster'])) : ?>
+                                <img src="<?php echo htmlspecialchars($movie['poster']); ?>" alt="<?php echo htmlspecialchars($movie['title']); ?>" style="width: 50px; height: auto;">
+                            <?php endif; ?>
         
-                        <form id="remove-form-<?php echo htmlspecialchars($movie_id); ?>" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" style="display:inline;">
-                            <input type="hidden" name="movie_id" value="<?php echo htmlspecialchars($movie_id); ?>">
-                            <input type="hidden" name="remove" value="1">
-                            <button type="submit" onclick="confirmRemoval('<?php echo htmlspecialchars($movie_id); ?>')">Remove from List</button>
-                        </form>
-                    </li>
+                            <p>
+                                <?php echo htmlspecialchars($movie['title']); ?>
+                            </p>
+            
+                            <form id="remove-form-<?php echo htmlspecialchars($movie['id']); ?>" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" style="display:inline;">
+                                <input type="hidden" name="movie_id" value="<?php echo htmlspecialchars($movie['id']); ?>">
+                                <input type="hidden" name="remove" value="1">
+                                <button type="submit" onclick="confirmRemoval('<?php echo htmlspecialchars($movie['id']); ?>')">Remove from List</button>
+                            </form>
+                        </li>
+                    </a>
                 <?php endforeach; ?>
             </ul>
         </div>
     </div>
 
-
-    
     <footer>
         <div class="footer-container">
             <h1>MyMovieList</h1>
@@ -225,7 +216,6 @@ $conn = null;
                 <i class='bx bxl-telegram bx-md' ></i>
                 <i class='bx bxl-tiktok bx-md' ></i>
             </div>
-            
         </div>
     </footer>
 </body>

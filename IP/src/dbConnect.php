@@ -1,8 +1,8 @@
 <?php
     class Database {
-        private $host = "movie_db";
+        private $host = "localhost";
         private $db_name = "movieDb";
-        private $username = "root";
+        private $username = "END";
         private $password = "1234";
         private static $instance = null;
         private $conn;

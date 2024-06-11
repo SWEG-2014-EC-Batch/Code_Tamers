@@ -1,3 +1,67 @@
+<?php
+session_start();
+
+// Check if the user is logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+
+// Your database configuration
+$servername = "localhost";
+$username = "END";
+$password = "1234";
+$dbname = "movieDb";
+$user = $_SESSION['username'];
+$num_rows=0;
+
+// Fetch the list of movies watched by the user
+$watched_movies = [];
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $conn->prepare("SELECT movies.id, movies.title, movies.year, movies.poster FROM user_movie 
+                            JOIN movies ON user_movie.movie_id = movies.id 
+                            WHERE user_movie.username = :username");
+    $stmt->bindParam(':username', $user);
+    $stmt->execute();
+    $watched_movies = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+
+try {
+
+    // SQL query to count the rows
+    $sql = "SELECT COUNT(*) AS total_rows FROM movies";
+    
+    // Prepare the SQL statement
+    $stmt = $conn->prepare($sql);
+    
+    // Execute the statement
+    $stmt->execute();
+    
+    // Fetch the result as an associative array
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    // Get the total count of rows
+    $totalRows = $row["total_rows"];
+
+    $stmt = $conn->prepare("SELECT * FROM movies WHERE id = " . rand(1,$totalRows));
+    $stmt->execute();
+    $movie = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    // Output the result
+} catch(PDOException $e) {
+    // Output any errors
+    echo "Error: " . $e->getMessage();
+}
+
+$conn = null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <body>
@@ -24,14 +88,14 @@
 </head>
 <body>
     <nav>
-        <a href="./index.php"><h1>MyMovieList</h1></a>
+        <a href="index.php"><h1>MyMovieList</h1></a>
         <div class="search-bar">
             <input type="text" placeholder="Search For any movie" id="Input">
             <!-- <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button> -->
         </div>
         <ul>
-            <li><a href="./pages/login.php">Login</a></li>
-            <li><a href="./pages/signup.php">Signup</a></li>
+            <li><a href="pages/login.php">Login</a></li>
+            <li><a href="pages/signup.php">Signup</a></li>
         </ul>
     </nav>    
     <div class="fav-container">
@@ -47,17 +111,17 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide box">
                     <div class="image_slider">
-                        <img src="../public/images/w2.jpg">
+                        <img src="<?php echo $movie["poster"];?>">
                     </div>
                 </div>
                 <div class="swiper-slide box">
                     <div class="image_slider">
-                        <img src="../public/images/w4.jpg">
+                        <img src="<?php echo $movie["poster"];?>">
                     </div>
                 </div>
                 <div class="swiper-slide box">
                     <div class="image_slider">
-                        <img src="../public/images/w2.jpg">
+                        <img src="<?php echo $movie["poster"];?>">
                     </div>
                 </div>
             </div>

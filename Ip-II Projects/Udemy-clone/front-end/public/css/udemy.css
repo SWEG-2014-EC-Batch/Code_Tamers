@@ -123,6 +123,113 @@
   .udemy-logo h1 {
     /* padding-left: 2rem; */
     text-align: center;
+  }
+
+/* =============================================================== */
+
+  /* styling for the login page */
+.login-container {
+  align-items: center;
+  margin: 12rem 20em;
+  /* padding: 5rem; */
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 60%;
+}
+
+.login-info {
+  width: 70%;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 70%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.3rem;
+  color: #9b9b9b;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:placeholder-shown ~ .form__label {
+    font-size: 1.3rem;
+    cursor: text;
+    top: 20px;
+  }
+}
+
+.form__field input {
+  display: block;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+
+.form__field:focus {
+  ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight:700;    
+  }
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #11998e, #38ef7d);
+  border-image-slice: 1;
+}
+/* reset input */
+.form__field{
+  &:required,&:invalid { box-shadow:none; }
+}
+
+.login-container button {
+  margin: 1rem;
+  padding: 0.7rem 3rem;
+  display: block;
+  font-family: 'Single Day', cursive;
+  font-size: 20px;
+  background: #2d0606;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background: #fff;   
+  color: #2d0606;
+}
+
+
+/* ===================================================== */
+/* for the upload page, however shares the input field style from the login page*/
+.upload-container {
+  margin: 10rem;
+  align-items: center;
+  width: 80%;
+}
     font-family: "Permanent Marker", cursive;
     font-weight: 400;
     font-style: normal;

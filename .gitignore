@@ -1,0 +1,8 @@
+# Ignore all .log files
+*.log
+
+
+# Ignore .env file
+.env
+# Ignore the target folder from git
+TextEditor/textSwing/target

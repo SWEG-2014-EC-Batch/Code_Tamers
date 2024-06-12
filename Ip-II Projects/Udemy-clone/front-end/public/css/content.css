@@ -1,0 +1,151 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --box-shadow: grey;
+}
+
+/* ---------------------------------------------------------------------- */
+
+.mainDiv {
+  overflow-x: hidden;
+}
+.content {
+  margin: 15rem;
+  margin-top: 5rem;
+  margin-bottom: 3rem;
+  font-family: "poor story";
+  font-size: 20px;
+  font-weight: 600;
+}
+.box {
+  text-align: center;
+  line-height: 1.3rem;
+}
+.box img {
+  border: 1px solid #d1dfdc;
+  display: inline-block;
+}
+
+.content .content-slider .box:hover {
+  box-shadow: 1px 1px 5px 4px var(--box-shadow);
+}
+
+/* Div1 CSS */
+.content h1 {
+  margin-bottom: 3rem;
+}
+.content h2 {
+  margin-bottom: 1rem;
+}
+.content p {
+  margin-bottom: 1rem;
+}
+
+#div1 .box img {
+  width: 100%;
+  max-height: 15rem;
+  object-fit: cover;
+}
+
+/* Div2 CSS */
+
+#div2 #div5 swiper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#div2 .box {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 5rem 2rem 10rem;
+}
+#div2 .box .text-wrap {
+  position: relative;
+  height: 20em;
+  max-width: 20rem;
+}
+
+#div2 .box .text-wrap h3 {
+  margin: 3rem;
+}
+#div2 .box .text-wrap p {
+  margin: 2rem;
+}
+#div2 .box .text-wrap .price {
+  margin: 1rem;
+}
+#div2 .box .text-wrap .stars {
+  margin: 1.5rem;
+}
+
+#div2 .box img {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Div3 CSS */
+#div3 .grid-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(5, 15rem);
+  grid-gap: 10px;
+}
+
+#div3 .grid-item {
+  border: #000;
+  background-color: #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Div5 CSS */
+#div5 #div5-left {
+  margin-right: 15rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-self: flex-start;
+}
+
+#div5 #div5-right {
+  margin-left: 15rem;
+  display: flex;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 5rem;
+  justify-self: flex-end;
+}
+#div5-right .box {
+  margin: 3.5rem;
+}
+#div5-right .box .text-wrap {
+  float: right;
+  position: relative;
+  height: 10em;
+  max-width: 30rem;
+  text-align: left;
+}
+
+#div5-right .box .text-wrap h3 {
+  margin: 0.5rem;
+}
+#div5-right .box .text-wrap p {
+  margin: 0.5rem;
+}
+#div5-right .box .text-wrap .price {
+  margin: 1rem;
+}
+#div5-right .box .text-wrap .stars {
+  margin: 1rem;
+}
+
+#div5-right .box img {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+}
